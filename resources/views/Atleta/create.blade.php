@@ -101,7 +101,23 @@
               <label> <a href="{{URL::to('clube')}}" title=""><h5>+ Outro clube</h5></a>  </label>   
                        
                                  <!--Categoria -->
-        
+            <div class="col-md-10"> <br> 
+                 <label for="categoria">Categoria : 
+                          <select id="categoria" name="categoria">
+                  
+                          @foreach($categoria as $cat)
+                          <option value="{{$cat->nome}}">{{$cat->nome}} </option>
+                          @endforeach
+                          </select>
+                  </label>    
+            </div> 
+
+
+<!-- 
+
+
+
+
                  <label for="categoria">Categoria :
                     <tr> 
                       <select name="categoria" id="categoria">  
@@ -111,7 +127,7 @@
                          <option value="Benjamin">Benjamin</option>
                       </select>  
                     </tr>          
-                 </label> 
+                 </label>  -->
               
                            <!-- Cinturao -->  
          

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;  
 use App\Atleta;  
-use App\Clube;
+use App\Clube;  
+use App\Categoria;
 
 class AtletaController extends Controller
 {   
@@ -16,9 +17,23 @@ class AtletaController extends Controller
        } 
    public function create()
        {  
-             $clube =Clube::all();  
-             return view("atleta.create",compact('clube'));
-       }  
+             $clube =Clube::all(); 
+             $categoria =Categoria::all();  
+             return view("atleta.create",['categoria'=>$categoria,'clube'=>$clube]); 
+
+         // public function create()
+         // {     
+         //     $torneio =Torneio::all(); 
+         //     $atleta = Atleta::all();
+         //     return view("competicao.create",['torneio'=>$torneio,'atleta'=>$atleta]); 
+         // } 
+
+
+
+
+       }
+
+
 
     public function edit($id)
        { 
