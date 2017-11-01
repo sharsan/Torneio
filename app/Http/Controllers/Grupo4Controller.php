@@ -1,23 +1,18 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Vencedor;    
+use App\Grupo4;  
 use App\Atleta;   
 use App\Arbitro;  
 use App\Escalao;  
 use App\Torneio; 
-// use App\Torneiro;      
- 
 
-class VencedorController extends Controller
+class Grupo4Controller extends Controller
 {
          public function index()
          {
-             $vencedor =Vencedor::all()->toArray();  
-             return view("vencedor.index",compact('vencedor'));
+             $grupo4 =Grupo4::all()->toArray();  
+             return view("grupo4.index",compact('grupo4'));
          } 
 
          public function create()
@@ -26,24 +21,25 @@ class VencedorController extends Controller
              $arbitro =Arbitro::all(); 
              $escalao =Escalao::all(); 
              $torneio =Torneio::all(); 
-           return view("vencedor.create",['escalao'=>$escalao,'arbitro'=>$arbitro,'torneio'=>$torneio,'atleta'=>$atleta]);
+           return view("grupo4.create",['escalao'=>$escalao,'arbitro'=>$arbitro,'torneio'=>$torneio,'atleta'=>$atleta]);
          }  
+
 
          public function edit($id)
          {
-                 $vencedor = Vencedor::find($id);
-                 return view('vencedor.edit',compact('vencedor','id'));
+             $clube = Clube::find($id);
+        
+             return view('clube.edit', compact('clube','id')); 
          } 
- 
-
+   
          public function store(Request $request)
             {   
 
                  $this->validate(request(), [
-                 // 'nome' => 'required|unique:vencedors|max:40',  
+                 // 'nome' => 'required|unique:grupo4|max:40',  
                  'nome' => 'required|max:40',  
             ]);
-                 $vencedor = new Vencedor([
+                 $Grupo4 = new Grupo4([
                  'juri' => $request->get('juri'),
                  'nome' => $request->get('nome'),
                  'escalao' => $request->get('escalao'),
@@ -54,11 +50,11 @@ class VencedorController extends Controller
                  'descricao' => $request->get('descricao') 
           ]);
 
-$existe=Vencedor::where("nome",$request->get('nome'))->where("escalao",$request->get('escalao'))->exists();
+$existe=Grupo4::where("nome",$request->get('nome'))->where("escalao",$request->get('escalao'))->exists();
 
          if($existe==false){
-             Vencedor::create($request->all()); 
-            return back()->with('success', 'Vencedor adicionado com sucesso');
+             grupo4::create($request->all()); 
+            return back()->with('success', 'Grupo4 adicionado com sucesso');
           }else{
             return back()->with('success', 'Ja existe este registo');
           }
@@ -70,18 +66,18 @@ $existe=Vencedor::where("nome",$request->get('nome'))->where("escalao",$request-
 
             'nome' => 'required' 
                   ]);
-          Vencedor::find($id)->update($request->all());
+          Grupo4::find($id)->update($request->all());
 
-             return redirect()->route('arbitro.index')
+             return redirect()->route('grupo4.index')
 
                         ->with('success','Actualizado com sucesso'); 
                    } 
             
          public function destroy($id)
             {
-               $vencedor = Vencedor::find($id);
-               $vencedor->delete();
+               $grupo4 = Grupo4::find($id);
+               $grupo4->delete();
 
-              return redirect('vencedor');
+              return redirect('grupo4');
                    }   
 }

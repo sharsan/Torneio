@@ -2,6 +2,7 @@
 @section('content')
 <title>Treinadores </title>
   <div class="container">
+  <h3><center><th>Treinadores</th></center> </h3>
     <table class="table table-striped">
 
   <div class="col-lg-4">

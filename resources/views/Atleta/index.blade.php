@@ -2,6 +2,7 @@
 @section('content')
 <title>Atletas </title>
   <div class="container">
+  <h3><center><th>Atletas</th></center> </h3>
     <table class="table table-striped"> 
   <a href="{{URL::to('atleta/create')}}" title=""><h4>Adicionar atleta</h4></a>
     <thead>

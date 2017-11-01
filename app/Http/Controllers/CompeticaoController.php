@@ -20,12 +20,6 @@ class CompeticaoController extends Controller
              return view("competicao.create",['torneio'=>$torneio,'atleta'=>$atleta]); 
          } 
     
-         // public function create()
-         // {     
-         //     $torneio =Torneio::all(); 
-         //     return view("competicao.create",compact('torneio')); 
-         // } 
-    
          public function edit($id)
          {
              $competicao = Competicao::find($id);

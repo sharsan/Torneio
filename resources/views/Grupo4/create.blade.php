@@ -1,9 +1,9 @@
 @extends('admin')
 @section('content')
- <title>Competicoes </title>
+ <title>Fase de grupos </title>
 <div class="container"> 
-      <h2>Registrar vencedor</h2><br> 
-  <a href="{{URL::to('vencedor')}}" title=""><h4><- voltar</h4></a>
+      <h2>Registrar grupo</h2><br> 
+  <a href="{{URL::to('grupo4')}}" title=""><h4><- voltar</h4></a>
              
                @if ($errors->any())
                    <div class="alert alert-danger">
@@ -21,7 +21,7 @@
                    </div><br>
                @endif
 
-  <form method="post"  action="{{url('vencedor')}}">
+  <form method="post"  action="{{url('grupo4')}}">
 
        {{csrf_field()}}   
      <!-- <div class="row">   -->
@@ -67,12 +67,12 @@
    <div class="row"> 
 
        <div class="form-group col-md-8">    
-           <h3>Selecione os vencedores</h3>   
-                                           <!-- 1º lugar -->
+           <h3>Selecione os atletas</h3>   
+                                           <!-- Atleta A -->
        
             <div class="col-md-10"> <br> 
-                  <label for="primeiro"> 1º lugar:
-                          <select id="primeiro" name="primeiro">
+                  <label for="A"> Atleta A:
+                          <select id="A" name="A">
                   
                           @foreach($atleta as $atl)
                           <option value="{{$atl->nome}}">{{$atl->nome}} </option>
@@ -80,10 +80,10 @@
                           </select>
                   </label>    
             </div> 
-                                            <!-- 2º lugar -->
+                                            <!-- Atleta B -->
             <div class="col-md-10"> 
-                  <label for="segundo"> 2º lugar:
-                         <select id="segundo" name="segundo">
+                  <label for="B"> Atleta B:
+                         <select id="B" name="B">
                   
                           @foreach($atleta as $atl)
                           <option value="{{$atl->nome}}">{{$atl->nome}} </option>
@@ -91,10 +91,10 @@
                           </select> 
                   </label>
             </div> 
-                                            <!-- 3º lugar -->
+                                            <!-- Atleta C -->
             <div class="col-md-10"> 
-                  <label for="terceiro"> 3º lugar:
-                          <select id="terceiro" name="terceiro">
+                  <label for="C"> Atleta C:
+                          <select id="C" name="C">
                   
                           @foreach($atleta as $atl)
                           <option value="{{$atl->nome}}">{{$atl->nome}} </option>
@@ -102,10 +102,10 @@
                           </select> 
                   </label>
             </div>
-                                            <!-- 3º lugar -->
+                                            <!-- Atleta D -->
             <div class="col-md-10"> 
-                  <label for="terceiro2"> 3º lugar:
-                          <select id="terceiro2" name="terceiro2">
+                  <label for="D"> Atleta D:
+                          <select id="D" name="D">
                   
                           @foreach($atleta as $atl)
                           <option value="{{$atl->nome}}">{{$atl->nome}} </option>

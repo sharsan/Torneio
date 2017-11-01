@@ -2,6 +2,7 @@
 @section('content')
 <title>Torneios </title>
   <div class="container">
+  <h3><center><th>Torneiros</th></center> </h3>
     <table class="table table-striped"> 
   <a href="{{URL::to('torneio/create')}}" title=""><h4>Adicionar torneio</h4></a>
     <thead>

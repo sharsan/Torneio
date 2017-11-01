@@ -3,6 +3,7 @@
 <title>Estados </title>
 
 <div class="container"> 
+  <h3><center><th>Estados torneiros</th></center> </h3>
   <table class="table table-striped">  
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
   <!-- Navbar content -->
@@ -45,11 +46,11 @@
          <td><a href="{{action('EstadoController@edit', $post['id'])}}" class="btn btn-warning">Editar</a></td>
         <td> 
           
-          <form action="{{action('EstadoController@destroy', $post['id'])}}" method="post">
+        <form action="{{action('EstadoController@destroy', $post['id'])}}" method="post">
             {{csrf_field()}}
             <input name="_method" type="hidden" value="DELETE">
             <button class="btn btn-danger" type="submit">Apagar</button>
-          </form>
+        </form>
         </td>
         </div>  <!--  este div inseri pra separa o Search com o restante -->
 

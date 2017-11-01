@@ -30,19 +30,13 @@
             
                                       <!-- Apelido -->
             <div class="col-md-6">
-                <label for="apelido"> Apelido:
-                  <input type="text" class="form-control" name="apelido"></input>
-                </label>
-            </div>
+                <label for="apelido"> Apelido:</label>
+                <input type="text" class="form-control" name="apelido"></input> </div>
              
                                         <!-- Nome -->
-
-                                        
             <div class="col-md-12">
-                <label for="nome"> Nome :
-                  <input type="text" class="form-control" name="nome"></input><br>
-                </label>
-            </div>
+                <label for="nome"> Nome :</label>
+                <input type="text" class="form-control" name="nome"></input><br></div>
   
           </div>
           <div class="form-group col-md-10">    
@@ -71,18 +65,16 @@
             </div>  
           </div>
           <div class="form-group col-md-10">    
-                                         <!-- telefone --> 
+                                       <!-- telefone --> 
             <div class="col-md-3">                
-               <label for="telefone"> telefone:
-               <input type="int" class="form-control" name="telefone"></input></div>
-               </label>  
+               <label for="telefone"> telefone:</label>
+               <input type="int" class="form-control" name="telefone"></input></div>  
                  
             <div class="col-md-6">         
-                                          <!-- email --> 
-               <label for="email"> email: 
-                 <input type="text" class="form-control" name="email"></input>
-               </label> 
-            </div> 
+                                         <!-- email --> 
+               <label for="email"> email: </label> 
+               <input type="text" class="form-control" name="email"></input>
+            </div>  
               
           </div> 
              
@@ -96,41 +88,29 @@
                           @foreach($clube as $clb)
                           <option value="{{$clb->nome}}">{{$clb->nome}} </option>
                         @endforeach
-                </select>
-              </label>    
-              <label> <a href="{{URL::to('clube')}}" title=""><h5>+ Outro clube</h5></a>  </label>   
-                       
+                </select> 
+              </label> 
+              <label> <a href="{{URL::to('clube')}}" title=""><h5>+ Outro clube</h5></a>  </label> 
+             </label>   
+             </div>           
                                  <!--Categoria -->
-            <div class="col-md-10"> <br> 
+            <div class="col-md-12"> <br> 
                  <label for="categoria">Categoria : 
                           <select id="categoria" name="categoria">
                   
                           @foreach($categoria as $cat)
                           <option value="{{$cat->nome}}">{{$cat->nome}} </option>
                           @endforeach
-                          </select>
-                  </label>    
-            </div> 
-
-
-<!-- 
-
-
-
-
-                 <label for="categoria">Categoria :
-                    <tr> 
-                      <select name="categoria" id="categoria">  
-                         <option value="Sénior">Sénior</option>
-                         <option value="Junior">Junior</option> 
-                         <option value="Pré-juvenil">Cadete</option>
-                         <option value="Benjamin">Benjamin</option>
-                      </select>  
-                    </tr>          
+                          </select>      
+                          
+<!-- caso se nacessite colocar um adicionador de categorias -->
+<!--                  </label> 
+       <label> <a href="{{URL::to('categoria')}}" title=""><h5>+ Outra categoria</h5></a> 
                  </label>  -->
-              
+                  </label>     
+
                            <!-- Cinturao -->  
-         
+          
                  <label for="cinturao">Cinturao: 
                  <tr>  
                    <select name="cinturao" id="cinturao">  
@@ -144,31 +124,20 @@
                     </select> 
                   </tr>
                  </label>  
-               </div>
+            </div>
          </div>
                <div class="form-group col-md-6"> 
-                <div class="col-md-6"> 
+                <div class="col-md-6"> <br>
                              <!-- Escalao  --> 
-                 <label for="escalao">Escalão de peso :
+                 <label for="escalao">Escalão de peso : 
+                      <select id="categoria" name="categoria">
                   
-                    <select name="escalao" id="escalao"> 
-                        <option value="+100">+100</option>
-                        <option value="-100">-100</option>
-                        <option value="-90">-90</option>
-                        <option value="-81">-81</option>
-                        <option value="+78">+78</option>
-                        <option value="-78">-78</option>
-                        <option value="-73">-73</option>
-                        <option value="-70">-70</option>
-                        <option value="-66">-66</option>
-                        <option value="-63">-63</option>
-                        <option value="-60">-60</option>
-                        <option value="-57">-57</option>
-                        <option value="-52">-52</option>
-                        <option value="-48">-48</option>
-                    </select>  
-                  </label>  
-                 </div>
+                          @foreach($escalao as $esc)
+                          <option value="{{$esc->nome}}">{{$esc->nome}} </option>
+                          @endforeach
+                      </select>
+                 </label>           
+                </div>
                               <!-- Peso --> 
                <div class="col-md-3">        
                     <label for="peso">Peso (Kg): 

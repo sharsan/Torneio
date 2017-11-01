@@ -1,9 +1,9 @@
 @extends('admin')
 @section('content')
-<title>Clubes </title>
+<title>Categorias </title>
 
 <div class="container"> 
-  <h3><center><th>Clubes</th></center> </h3>
+  <h3><center><th>Categorias</th></center> </h3>
   <table class="table table-striped">  
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
   <!-- Navbar content -->
@@ -22,7 +22,7 @@
     <thead>    
 
     <div class="form-group col-md-4"> <br>
-        <a href="{{URL::to('clube/create')}}" title=""><h4>Adicionar clube</h4></a> 
+        <a href="{{URL::to('categoria/create')}}" title=""><h4>Adicionar categoria</h4></a> 
     </div>
  
       <thead>
@@ -34,7 +34,7 @@
         </tr>
       </thead>
       <tbody>
-        @foreach($clube as $post)
+        @foreach($categoria as $post)
         <tr>
           <td>{{$post['id']}}</td>
           <td>{{$post['nome']}}</td> 
@@ -42,10 +42,10 @@
           <td>{{$post['updated_at']}}</td> 
 
           
-         <td><a href="{{action('ClubeController@edit', $post['id'])}}" class="btn btn-warning">Editar</a></td>
+         <td><a href="{{action('CategoriaController@edit', $post['id'])}}" class="btn btn-warning">Editar</a></td>
         <td> 
           
-          <form action="{{action('ClubeController@destroy', $post['id'])}}" method="post">
+          <form action="{{action('CategoriaController@destroy', $post['id'])}}" method="post">
             {{csrf_field()}}
             <input name="_method" type="hidden" value="DELETE">
             <button class="btn btn-danger" type="submit">Apagar</button>

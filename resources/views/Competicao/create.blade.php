@@ -2,7 +2,7 @@
 @section('content')
  <title>Aderir competicao </title>
 <div class="container"> 
-      <h2>Registrar-se competidor</h2><br>
+      <h2>Registrar competidor</h2><br>
         <a href="{{URL::to('competicao')}}" title=""><h4><- voltar</h4></a>   
 
                @if ($errors->any())
@@ -51,7 +51,8 @@
                           @endforeach
                           </select>
                   </label>    
-            </div>  
+            </div>
+          </div>  
                                     <!-- Outros detalhes --> 
 
          <div class="form-group col-md-12"><br> 

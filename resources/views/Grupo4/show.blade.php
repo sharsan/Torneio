@@ -1,11 +1,11 @@
-@extends('master') 
+@extends('admin')
 @section('content')
- <title>Vencedores </title>
+ <title>Grupos </title>
 <div class="container"> 
-      <h2>Registrar vencedor</h2><br>
+      <h2>Registrar grupo</h2><br>
      
     <div class="container">
-  <a href="{{URL::to('vencedor')}}" title=""><h4><- voltar</h4></a>
+  <a href="{{URL::to('grupo4')}}" title=""><h4><- voltar</h4></a>
              
                @if ($errors->any())
                    <div class="alert alert-danger">
@@ -23,7 +23,7 @@
                    </div><br>
                @endif
 
-  <form method="post"  action="{{url('vencedor')}}">
+  <form method="post"  action="{{url('grupo4')}}">
     <div class="form-group row">
        {{csrf_field()}}     
                           
@@ -56,46 +56,7 @@
                         <option value="-48">-48</option>
                     </select>  
                   </label>  
-
-                                              <!-- juri : -->
-                <label for="juri">Júri :
-                  <input type="text" class="form-control" name="juri"></input>
-                </label>
-              
-             </div>   
-
-             <div class="col-md-6">
-                <label for="primeiro">1º lugar:
-                  <input type="text" class="form-control" name="primeiro"></input>
-                </label> 
-
-                <label for="segundo">2º lugar:
-                  <input type="text" class="form-control" name="segundo"></input>
-                </label> 
-
-                <label for="terceiro">3º lugar:
-                  <input type="text" class="form-control" name="terceiro"></input>
-                </label> 
-
-                <label for="terceiro2">3º lugar:
-                  <input type="text" class="form-control" name="terceiro2"></input>
-                </label>
  
-             </div>
-
-
-              <div class="form-group">
-                <select id="nome" name="nome">
-                  
-                          @foreach($atleta as $atl)
-                          <option value="{{$atl->nome}}">{{$atl->nome}} </option>
-                        @endforeach
-                </select>
-
-              </div>
-
-     
-      
                                     <!-- Outros detalhes --> 
           <div class="form-group col-md-12">
                 <label for="descricao" class="col-sm-2 col-form-label col-form-label-sm"> Outros detalhes
@@ -106,7 +67,7 @@
 
 
    <div class="form-group col-md-4"><br>
-    <button type="submit" class="btn btn-success" style="margin-left:38px">Adicionar vencedor</button>   
+    <button type="submit" class="btn btn-success" style="margin-left:38px">Adicionar grupo</button>   
   </div>
 </form>
  

@@ -3,9 +3,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;  
-use App\Atleta;  
-use App\Clube;  
-use App\Categoria;
+use App\Atleta;
+use App\Categoria;  
+use App\Clube;     
+use App\Escalao;   
 
 class AtletaController extends Controller
 {   
@@ -15,25 +16,15 @@ class AtletaController extends Controller
         $atleta = Atleta::all()->toArray(); 
         return view('atleta.index', compact('atleta'));
        } 
-   public function create()
-       {  
+
+            public function create()
+       {              
+             $atleta =Atleta::all();  
+             $categoria =Categoria::all(); 
              $clube =Clube::all(); 
-             $categoria =Categoria::all();  
-             return view("atleta.create",['categoria'=>$categoria,'clube'=>$clube]); 
-
-         // public function create()
-         // {     
-         //     $torneio =Torneio::all(); 
-         //     $atleta = Atleta::all();
-         //     return view("competicao.create",['torneio'=>$torneio,'atleta'=>$atleta]); 
-         // } 
-
-
-
-
-       }
-
-
+             $escalao =Escalao::all();
+           return view("atleta.create",['categoria'=>$categoria,'clube'=>$clube,'escalao'=>$escalao]);
+       }   
 
     public function edit($id)
        { 

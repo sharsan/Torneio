@@ -2,6 +2,7 @@
 @section('content')
 <title>Competidores </title>
   <div class="container">
+  <h3><center><th>Inscrições</th></center> </h3>
     <table class="table table-striped"> 
   <a href="{{URL::to('competicao/create')}}" title=""><h4>Adicionar competidor</h4></a>
     <thead>

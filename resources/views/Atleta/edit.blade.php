@@ -35,7 +35,7 @@
                                       <!-- Apelido -->
             <div class="col-md-6">
                 <label for="apelido"> Apelido:</label>
-                <input type="text" class="form-control" name="apelido"value="{{$atleta->apelido}}"></input> </div>
+                <input type="text" class="form-control" name="apelido"value="{{$atleta->apelido}}">  </div>
              
                                         <!-- Nome -->
             <div class="col-md-12">
