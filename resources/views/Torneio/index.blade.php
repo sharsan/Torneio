@@ -23,6 +23,7 @@
     <tbody>
       @foreach($torneio as $post)
       <tr>
+        
         <td>{{$post['id']}}</td>
         <td>{{$post['nome']}}</td>
         <td>{{$post['estado']}}</td>
@@ -35,7 +36,7 @@
         <td>{{$post['created_at']}}</td>
         <td>{{$post['updated_at']}}</td>
 
-        <td><a href="{{action('TorneioController@edit', $post['id'])}}" class="btn btn-warning">Editar</a></td>
+        <td><a href="{{action('TorneioController@edit', $post['id'])}}" class="btn btn-success">Editar</a></td>
         <td>
           <form action="{{action('TorneioController@destroy', $post['id'])}}" method="post">
             {{csrf_field()}}

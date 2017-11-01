@@ -43,12 +43,13 @@
         <td>{{$post['created_at']}}</td>
         <td>{{$post['updated_at']}}</td>
 
-        <td><a href="{{action('AtletaController@edit', $post['id'])}}" class="btn btn-warning">Editar</a></td>
+        <td><a href="{{action('AtletaController@edit', $post['id'])}}" class="btn btn-success">Editar</a></td>
         <td>
           <form action="{{action('AtletaController@destroy', $post['id'])}}" method="post">
             {{csrf_field()}}
             <input name="_method" type="hidden" value="DELETE">
             <button class="btn btn-danger" type="submit">Apagar</button>
+          
           </form>
         </td>
       </tr>

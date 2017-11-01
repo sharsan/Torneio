@@ -56,7 +56,7 @@ $existe=Grupo4::where("nome",$request->get('nome'))->where("escalao",$request->g
 
          if($existe==false){
              grupo4::create($request->all()); 
-            return back()->with('success', 'Grupo4 adicionado com sucesso');
+            return back()->with('success', 'Grupo adicionado com sucesso');
           }else{
             return back()->with('success', 'Ja existe este registo');
           }

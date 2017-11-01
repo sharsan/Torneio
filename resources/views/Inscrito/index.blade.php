@@ -23,7 +23,7 @@
         <td>{{$post['created_at']}}</td>
         <td>{{$post['updated_at']}}</td>
 
-        <td><a href="{{action('InscritoController@edit', $post['id'])}}" class="btn btn-warning">Editar</a></td>
+        <td><a href="{{action('InscritoController@edit', $post['id'])}}" class="btn btn-success">Editar</a></td>
         <td>
           <form action="{{action('InscritoController@destroy', $post['id'])}}" method="post">
             {{csrf_field()}}

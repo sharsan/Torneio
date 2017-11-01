@@ -51,7 +51,7 @@
           <td>{{$post['updated_at']}}</td> 
 
           
-         <td><a href="{{action('Grupo4Controller@edit', $post['id'])}}" class="btn btn-warning">Editar</a></td>
+         <td><a href="{{action('Grupo4Controller@edit', $post['id'])}}" class="btn btn-success">Editar</a></td>
         <td>
         <form action="{{action('Grupo4Controller@destroy', $post['id'])}}" method="post">
             {{csrf_field()}}

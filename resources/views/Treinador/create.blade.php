@@ -35,12 +35,12 @@
                             <!-- Apelido -->
             <div class="col-md-6">
                 <label for="apelido"> Apelido:</label>
-                <input type="text" class="form-control" name="apelido"></input> </div>
+                <input type="text" class="form-control" name="apelido"placeholder="Ex: Conde"></input> </div>
              
                              <!-- Nome -->
             <div class="col-md-12">
                 <label for="nome"> Nome :</label>
-                <input type="text" class="form-control" name="nome"></input><br></div>
+                <input type="text" class="form-control" name="nome"placeholder="Ex: Chiquinho"></input><br></div>
   
           </div>
           <div class="form-group col-md-10">    
@@ -77,7 +77,7 @@
                                          <!-- email -->
             <div class="col-md-6">     
                <label for="email"> email: </label> 
-               <input type="text" class="form-control" name="email"></input><br>
+               <input type="text" class="form-control" name="email"placeholder="Ex: chiquinhoconde@mocambola.co.mz"></input><br>
             </div>  
                                            <!-- Clube --> 
                 
@@ -99,7 +99,7 @@
          <div class="form-group col-md-12">
               <label for="descricao" class="col-sm-2 col-form-label col-form-label-sm">Outros detalhes
                
-          <br> <br><textarea name="nota" rows="8" cols="80"></textarea> 
+          <br> <br><textarea name="nota"placeholder=" Ex: Antigo jogador do Sporting de Portgugal " rows="8" cols="80"></textarea> 
               </label>
         </div>
 

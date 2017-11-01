@@ -53,10 +53,21 @@
                           </select>
                   </label>    
             </div>
+                                               <!-- Escalao  --> 
+            <div class="col-md-10"> <br> 
+                  <label for="escalao">Escalão de peso :
+                          <select id="escalao" name="escalao">
+                  
+                          @foreach($escalao as $esc)
+                          <option value="{{$esc->nome}}">{{$esc->nome}} </option>
+                          @endforeach
+                          </select>
+                  </label>    
+            </div> 
           </div>  
                                     <!-- Outros detalhes --> 
 
-         <div class="form-group col-md-12"><br> 
+         <div class="form-group col-md-12">  
               <label for="descricao" class="col-sm-2 col-form-label col-form-label-sm">Outros detalhes
                
           <br> <br><textarea name="descricao" rows="8" cols="80"></textarea> 
