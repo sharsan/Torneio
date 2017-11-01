@@ -90,8 +90,7 @@
                         @endforeach
                 </select> 
               </label> 
-              <label> <a href="{{URL::to('clube')}}" title=""><h5>+ Outro clube</h5></a>  </label> 
-             </label>   
+              <label> <a href="{{URL::to('clube')}}" title=""><h5>+ Outro clube</h5></a>  </label>  
              </div>           
                                  <!--Categoria -->
             <div class="col-md-12"> <br> 

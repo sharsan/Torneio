@@ -1,66 +1,66 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Competicao;
+use App\Inscrito;
 use App\Torneio;
 use App\Atleta;;
 
-class CompeticaoController extends Controller
+class InscritoController extends Controller
 {
         public function index()
          {
-             $competicao = Competicao::all()->toArray();        
-             return view('competicao.index', compact('competicao'));
+             $inscrito = Inscrito::all()->toArray();        
+             return view('inscrito.index', compact('inscrito'));
          } 
 
          public function create()
          {     
              $torneio =Torneio::all(); 
              $atleta = Atleta::all();
-             return view("competicao.create",['torneio'=>$torneio,'atleta'=>$atleta]); 
+             return view("inscrito.create",['torneio'=>$torneio,'atleta'=>$atleta]); 
          } 
     
          public function edit($id)
          {
-             $competicao = Competicao::find($id);
+             $inscrito = Inscrito::find($id);
         
-             return view('competicao.edit', compact('competicao','id')); 
+             return view('inscrito.edit', compact('inscrito','id')); 
          } 
 
          public function store(Request $request)
          {      
            $this->validate(request(), [
-        'nome' => 'required|unique:competicaos|max:40',
+        'nome' => 'required|unique:inscritos|max:40',
             ]);
-            $competicao = new Competicao([
+            $inscrito = new Inscrito([
                 'nome' => $request->get('nome'),
                 'competidor' => $request->get('competidor'), 
                 'desclassificados' => $request->get('desclassificados'), 
                 'descricao' => $request->get('descricao')
                //campos de exigencia de valores
                               ]);
-      Competicao::create($request->all());
+      Inscrito::create($request->all());
             return back()->with('success', 'Competidor adicionado com sucesso'); 
  
          }
  
          public function update(Request $request, $id)
          {      
-            $competicao = Competicao::find($id);
+            $inscrito = Inscrito::find($id);
            $this->validate(request(), [
                   'nome' => 'required' 
             ]); 
-             $competicao->nome = $request->get('nome');  
-             $competicao->competidor = $request->get('competidor');  
-             $competicao->descricao = $request->get('descricao'); 
-             $competicao->save();
-             return redirect('competicao')->with('success','Competidoro actualizado com sucesso');
+             $inscrito->nome = $request->get('nome');  
+             $inscrito->competidor = $request->get('competidor');  
+             $inscrito->descricao = $request->get('descricao'); 
+             $inscrito->save();
+             return redirect('inscrito')->with('success','Competidoro actualizado com sucesso');
          }
          public function destroy($id)
         {
-             $competicao = Competicao::find($id);
-             $competicao->delete();
+             $inscrito = Inscrito::find($id);
+             $inscrito->delete();
 
-           return redirect('/competicao');
+           return redirect('/inscrito');
       }  
 }

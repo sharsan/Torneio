@@ -4,8 +4,9 @@ use Illuminate\Http\Request;
 use App\Grupo4;  
 use App\Atleta;   
 use App\Arbitro;  
-use App\Escalao;  
-use App\Torneio; 
+use App\Escalao; 
+use App\Inscrito; 
+use App\Torneio;  
 
 class Grupo4Controller extends Controller
 {
@@ -20,8 +21,9 @@ class Grupo4Controller extends Controller
              $atleta =Atleta::all(); 
              $arbitro =Arbitro::all(); 
              $escalao =Escalao::all(); 
+             $inscrito =Inscrito::all(); 
              $torneio =Torneio::all(); 
-           return view("grupo4.create",['escalao'=>$escalao,'arbitro'=>$arbitro,'torneio'=>$torneio,'atleta'=>$atleta]);
+           return view("grupo4.create",['atleta'=>$atleta,'arbitro'=>$arbitro,'escalao'=>$escalao,'inscrito'=>$inscrito,'torneio'=>$torneio]);
          }  
 
 

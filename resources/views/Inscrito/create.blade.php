@@ -1,9 +1,10 @@
 @extends('admin') 
 @section('content')
- <title>Aderir competicao </title>
+ <title>Inscrever competidor</title>
 <div class="container"> 
-      <h2>Registrar competidor</h2><br>
-        <a href="{{URL::to('competicao')}}" title=""><h4><- voltar</h4></a>   
+       <h2>Inscrever competidor</h2><br> 
+       
+        <a href="{{URL::to('inscrito')}}" title=""><h4><- voltar</h4></a>   
 
                @if ($errors->any())
                    <div class="alert alert-danger">
@@ -21,7 +22,7 @@
                    </div><br>
                @endif
                
-  <form method="post" action="{{url('competicao')}}">
+  <form method="post" action="{{url('inscrito')}}">
 
         {{csrf_field()}} 
                           
@@ -30,11 +31,11 @@
              
                                      <!-- Nome do Evento -->
             <div class="col-md-12"> 
-            <br>
-             <label for="torneio"> Torneio:  
-                <select id="torneio" name="torneio">
+                <br>
+                 <label for="nome"> Torneio:  
+                        <select id="nome" name="nome">
                   
-                          @foreach($torneio as $trn)
+                        @foreach($torneio as $trn)
                           <option value="{{$trn->nome}}">{{$trn->nome}} </option>
                         @endforeach
                 </select>
@@ -63,7 +64,7 @@
          </div>
 
          <div class="form-group col-md-4"> 
-    <button type="submit" class="btn btn-success" style="margin-left:38px">Adicionar competidor</button>  
+    <button type="submit" class="btn btn-success" style="margin-left:38px">Inscrever competidor</button>  
      
          </div>
 </form>

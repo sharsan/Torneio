@@ -9,11 +9,11 @@ Route::get('/', function () {
 Route::resource('arbitro', 'ArbitroController');
 Route::resource('atleta', 'AtletaController'); 
 Route::resource('categoria', 'CategoriaController'); 
-Route::resource('clube', 'ClubeController'); 
-Route::resource('competicao', 'CompeticaoController'); 
+Route::resource('clube', 'ClubeController');  
 Route::resource('estado', 'EstadoController');  
 Route::resource('escalao', 'EscalaoController'); 
 Route::resource('grupo4', 'Grupo4Controller'); 
+Route::resource('inscrito', 'InscritoController'); 
 Route::resource('grupo', 'GrupoController'); 
 Route::resource('treinador', 'TreinadorController');  
 Route::resource('torneio', 'TorneioController');   

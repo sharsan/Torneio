@@ -3,7 +3,7 @@
  <title>Registrar competidor </title>
 <div class="container">
       <h2>Registrar competidor</h2><br> 
-        <a href="{{URL::to('competicao')}}" title=""><h4><- voltar</h4></a>   
+        <a href="{{URL::to('inscrito')}}" title=""><h4><- voltar</h4></a>   
 
                @if ($errors->any())
                    <div class="alert alert-danger">
@@ -21,7 +21,7 @@
                    </div><br>
                @endif
           
-  <form method="post" action="{{url('competicao')}}">
+  <form method="post" action="{{url('inscrito')}}">
     <div class="form-group row">
         {{csrf_field()}} 
 
