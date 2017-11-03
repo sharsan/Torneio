@@ -15,7 +15,8 @@
 
 <a href="{{URL::to('torneio')}}" title="" class="btn btn-warning"><h4>Torneios</h4></a> 
  
-<a href="{{URL::to('inscrito')}}" title="" class="btn btn-warning"><h4>Inscrições</h4></a>  
+<a href="{{URL::to('inscrito')}}" title="" class="btn btn-warning"><h4>Inscrições</h4></a> 
+ 
 <a href="{{URL::to('grupo4')}}" title="" class="btn btn-warning"><h4>Grupos</h4></a>  
 
 <a href="{{URL::to('vencedor')}}" title="" class="btn btn-warning"><h4>Resultados</h4></a> 

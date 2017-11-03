@@ -79,23 +79,38 @@ class AtletaController extends Controller
         } 
         
       public function update(Request $request, $id)
-      { 
-           request()->validate(  
-          [   
-                 'nome' => 'required'   
-           ]); 
-       Atleta::find($id)->update($request->all());
-           return redirect()->route('atleta.index')
+    {
+        $atleta = Atleta::find($id);
+        
+        $this->validate(request(), [         
+          'nome' => 'required'  
+          // 'nome' => 'required|unique:posts|max:15' 
+          //NAO FUNCIONA PORCAUSA DO UNIQUE NO EDIT
+            ]);
+        $atleta->nome = $request->get('nome');
+             // $table->string('email')/*->unique()*/; 
+        $atleta->apelido = $request->get('apelido');
+        $atleta->cinturao = $request->get('cinturao');
+        $atleta->clube = $request->get('clube');
+        $atleta->categoria = $request->get('categoria');
+        $atleta->escalao = $request->get('escalao');
+        $atleta->peso = $request->get('peso');
+        $atleta->sexo = $request->get('sexo');
+        $atleta->idade = $request->get('idade');
+        $atleta->telefone = $request->get('telefone');
+        $atleta->email = $request->get('email');
+        $atleta->treinador = $request->get('treinador');
+        $atleta->descricao = $request->get('descricao');
+        $atleta->save();
+        return redirect('/atleta')->with('success','Arbitro actualizado com sucesso');
+    }
 
-                        ->with('success','Atleta actualizado com sucesso'); 
-      }
+    public function destroy($id)
+    {
+      $atleta = Atleta::find($id);
+      $atleta->delete();
 
-      public function destroy($id)
-      {
-              $atleta = Atleta::find($id);
-              $atleta->delete();
-
-       return redirect('atleta');
-     } 
+      return redirect('atleta');
+    } 
 
 } 

@@ -1,9 +1,9 @@
 @extends('admin')
 @section('content')
- <title>Registrar competidores a um grupo</title>
+ <title>Registrar vencedores da 1ª luta</title>
 <div class="container">  
-       <h2>Registrar competidores a um grupo</h2><br> 
-  <a href="{{URL::to('grupo4')}}" title=""><h4><- voltar</h4></a>
+       <h2>Registrar vencedores da 1ª luta</h2><br> 
+  <a href="{{URL::to('faseGr')}}" title=""><h4><- voltar</h4></a>
              
                @if ($errors->any())
                    <div class="alert alert-danger">
@@ -21,7 +21,7 @@
                    </div><br>
                @endif
 
-  <form method="post"  action="{{url('grupo4')}}">
+  <form method="post"  action="{{url('faseGr')}}">
 
        {{csrf_field()}}   
      <!-- <div class="row">   -->
@@ -116,9 +116,7 @@
                           </select> 
                   </label>
             </div>
-        </div> 
-     
-     
+        </div>  
 
                                      <!-- Outros detalhes --> 
 

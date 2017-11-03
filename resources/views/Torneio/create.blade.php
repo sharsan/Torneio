@@ -64,7 +64,9 @@
                      </select> 
                       
                    </label>  
-                   <label> <a href="{{URL::to('estado')}}" title=""><h5>+ Outro estado</h5></a>  </label>     
+                   <label> <a href="{{URL::to('estado')}}" title="">
+                    <h5>+ Outro estado</h5></a>  
+                   </label>     
 
             </div>  
          </div>     

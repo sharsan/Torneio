@@ -1,8 +1,8 @@
 @extends('admin')
 @section('content')
- <title>Actualizando grupos </title>
-<div class="container"> 
-      <h2>Registrar grupo</h2><br> 
+ <title>Editar vencedores da 1ª luta</title>
+<div class="container">  
+       <h2>Editar vencedores da 1ª luta</h2><br> 
   <a href="{{URL::to('grupo4')}}" title=""><h4><- voltar</h4></a>
              
                @if ($errors->any())
@@ -21,111 +21,100 @@
                    </div><br>
                @endif
 
-  <form method="post" action="{{action('Grupo4Controller@update', $id)}}"> 
-          {{csrf_field()}}
-   <input name="_method" type="hidden" value="PATCH">   
+ 
+  <form method="post" action="{{action('Grupo4Controller@update', $id)}}">
+      
+       {{csrf_field()}}      
+  <input name="_method" type="hidden" value="PATCH"> 
 
  <div class="row">
-      <div class="form-group col-md-8">   
-                               <!-- Nome do campeonato  -->  
+      <div class="form-group col-md-12">   
 
-            <div class="col-md-10"> <br> 
-                  <label for="nome"> Nome do Torneio :
-                          <select id="nome" name="nome">
-                  
-                          @foreach($torneio as $tor)
-                          <option value="{{$tor->nome}}">{{$tor->nome}} </option>
-                          @endforeach
-                          </select>
-                  </label>    
+                               <!-- Nome do campeonato  -->   
+
+            <div class="col-md-4"> 
+                 <label for="nome"> Nome :</label>
+                 <input type="text" class="form-control" name="nome"value="{{$grupo4->nome}}"></input><br>
+                    
             </div> 
+     </div>
                                    <!-- Escalao  --> 
-            <div class="col-md-10"> <br> 
-                  <label for="escalao">Escalão de peso :
-                          <select id="escalao" name="escalao">
+        <div class="form-group col-md-8">                             
+            <div class="col-md-6"> 
+                             <!-- Escalao  --> 
+                 <label for="escalao">Escalão de peso :
                   
-                          @foreach($escalao as $esc)
-                          <option value="{{$esc->nome}}">{{$esc->nome}} </option>
-                          @endforeach
-                          </select>
-                  </label>    
-            </div> 
+                    <select name="escalao" id="escalao"> 
+                        <option value="+100">+100</option>
+                        <option value="-100">-100</option>
+                        <option value="-90">-90</option>
+                        <option value="-81">-81</option>
+                        <option value="+78">+78</option>
+                        <option value="-78">-78</option>
+                        <option value="-73">-73</option>
+                        <option value="-70">-70</option>
+                        <option value="-66">-66</option>
+                        <option value="-63">-63</option>
+                        <option value="-60">-60</option>
+                        <option value="-57">-57</option>
+                        <option value="-52">-52</option>
+                        <option value="-48">-48</option>
+                    </select> 
+                  </label>  <br> <br>
+             
           
                                               <!-- juri : -->
-            <div class="col-md-10"> <br> 
-                  <label for="juri"> Júri :
-                          <select id="juri" name="juri">
+                                       
+                 <label for="juri"> Júri :</label> 
+                 <input type="text" class="form-control" name="juri"value="{{$grupo4->juri}}">
+                   
+                 </input>
+                          
+              </div>
                   
-                          @foreach($arbitro as $arb)
-                          <option value="{{$arb->nome}}">{{$arb->nome}} </option>
-                          @endforeach
-                          </select>
-                  </label>    
-            </div> 
 
   
    <div class="row"> 
 
-       <div class="form-group col-md-8">    
-           <h3>Selecione os atletas</h3>   
-                                           <!-- Atleta A -->
-       
-            <div class="col-md-10"> <br> 
-                  <label for="A"> Atleta A:
-                          <select id="A" name="A">
-                  
-                          @foreach($atleta as $atl)
-                          <option value="{{$atl->nome}}">{{$atl->nome}} </option>
-                          @endforeach
-                          </select>
-                  </label>    
+       <div class="form-group col-md-8">      
+              <br>  
+            <div class="col-md-12"> 
+                 <label for="A"> Atleta A :
+                 <input type="text" class="form-control" name="A"value="{{$grupo4->A}}"></input><br>
+                 </label>   
             </div> 
+
                                             <!-- Atleta B -->
-            <div class="col-md-10"> 
-                  <label for="B"> Atleta B:
-                         <select id="B" name="B">
-                  
-                          @foreach($atleta as $atl)
-                          <option value="{{$atl->nome}}">{{$atl->nome}} </option>
-                          @endforeach
-                          </select> 
-                  </label>
+            <div class="col-md-12"> 
+                 <label for="B"> Atleta B :
+                 <input type="text" class="form-control" name="B"value="{{$grupo4->B}}"></input><br>
+                 </label>   
             </div> 
                                             <!-- Atleta C -->
-            <div class="col-md-10"> 
-                  <label for="C"> Atleta C:
-                          <select id="C" name="C">
-                  
-                          @foreach($atleta as $atl)
-                          <option value="{{$atl->nome}}">{{$atl->nome}} </option>
-                          @endforeach
-                          </select> 
-                  </label>
-            </div>
+            <div class="col-md-12"> 
+                 <label for="C"> Atleta C :
+                 <input type="text" class="form-control" name="C"value="{{$grupo4->C}}"></input><br>
+                 </label>   
+            </div> 
                                             <!-- Atleta D -->
-            <div class="col-md-10"> 
-                  <label for="D"> Atleta D:
-                          <select id="D" name="D">
-                  
-                          @foreach($atleta as $atl)
-                          <option value="{{$atl->nome}}">{{$atl->nome}} </option>
-                          @endforeach
-                          </select> 
-                  </label>
-            </div>
-        </div> 
-      
+            <div class="col-md-12"> 
+                 <label for="D"> Atleta D :
+                 <input type="text" class="form-control" name="D"value="{{$grupo4->D}}"></input><br>
+                 </label>   
+            </div> 
+        </div>  
+
                                      <!-- Outros detalhes --> 
 
          <div class="form-group col-md-12">
-             <br> <label for="descricao" class="col-sm-2 col-form-label col-form-label-sm">Outros detalhes
+               <label for="descricao" class="col-sm-2 col-form-label col-form-label-sm">Outros detalhes
                
           <br> <br><textarea name="descricao" rows="8" cols="80"></textarea> 
               </label>
         </div>
 
    <div class="form-group col-md-4"> 
-    <button type="submit" class="btn btn-success" style="margin-left:38px">Adicionar grupo</button>  
+    <button type="submit" class="btn btn-success" style="margin-left:38px">Adicionar vencedores</button>  
   </div>
 </form>
  
