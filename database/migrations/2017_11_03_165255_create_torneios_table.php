@@ -19,7 +19,8 @@ class CreateTorneiosTable extends Migration
             $table->string('descricao', 150);  
             $table->timestamps();
 
-
+ 
+ 
             $table->foreign('inscritos_id')->references('id')->on('inscritos');
 
         });

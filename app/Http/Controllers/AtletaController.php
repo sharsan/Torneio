@@ -23,7 +23,7 @@ class AtletaController extends Controller
 
         $atleta = Atleta::all()->toArray(); 
 
-          dd($atleta);
+          // dd($atleta);
         // $users = DB::table('users')
         //     ->join('contacts', 'users.id', '=', 'contacts.user_id')
         //     ->join('orders', 'users.id', '=', 'orders.user_id')
