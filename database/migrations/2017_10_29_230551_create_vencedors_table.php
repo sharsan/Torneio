@@ -10,7 +10,7 @@ class CreateVencedorsTable extends Migration
     {
         Schema::create('vencedors', function (Blueprint $table) {
             $table->increments('id');  
-            $table->string('nome', 100);       
+            $table->string('nome', 20);       
             $table->string('escalao', 3);
             $table->string('primeiro', 40);
             $table->string('segundo', 40);

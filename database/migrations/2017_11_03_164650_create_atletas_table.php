@@ -12,17 +12,23 @@ class CreateAtletasTable extends Migration
             $table->string('nome', 45);
             $table->string('apelido', 15);
             $table->string('cinturao', 30);
-            $table->string('clube', 50);
-            $table->string('categoria',100);
-            $table->string('escalao',30);
+            $table->integer('clube_id')->unsigned()->index();
+            $table->integer('categoria_id')->unsigned()->index();
+            $table->integer('escalao_id')->unsigned()->index();
             $table->double('peso', 4);
             $table->string('sexo', 2);
             $table->integer('idade');           
             $table->integer('telefone'); 
             $table->string('email', 40); 
-            $table->string('treinador', 40);  
+            $table->integer('treinador_id')->unsigned()->index();  
             $table->string('descricao', 150);
             $table->timestamps();
+
+            
+            $table->foreign('categoria_id')->references('id')->on('categorias');
+            $table->foreign('clube_id')->references('id')->on('clubes');
+            $table->foreign('escalao_id')->references('id')->on('escalaos');
+            $table->foreign('treinador_id')->references('id')->on('treinadors');
         });
     } 
     public function down()

@@ -103,9 +103,9 @@
                           </select>      
                           
 <!-- caso se nacessite colocar um adicionador de categorias -->
-<!--                  </label> 
+                 </label> 
        <label> <a href="{{URL::to('categoria')}}" title=""><h5>+ Outra categoria</h5></a> 
-                 </label>  -->
+                 </label> 
                   </label>     
 
                            <!-- Cinturao -->  

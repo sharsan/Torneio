@@ -6,5 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Clube extends Model
 {
-protected $fillable=[ 'nome', 'descricao','created_at','updated_at'];
+	
+	protected $fillable=['id','nome', 'descricao','created_at','updated_at'];
+
+	protected $with = ['atletas']; 
+
+	public function atletas()
+	{
+		return $this->hasMany('App\Atleta', 'id');
+	}
 }

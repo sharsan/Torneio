@@ -5,6 +5,8 @@ Route::get('/', function () {
     return view('home');
 });
 
+
+Route::get('/atletas'    , 'AtletaController@teste'    ); 
  
 Route::resource('arbitro'   , 'ArbitroController'   );
 Route::resource('atleta'    , 'AtletaController'    ); 

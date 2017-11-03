@@ -6,24 +6,17 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateCompeticaosTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('competicaos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nome', 20);    
+            $table->string('descricao', 150);
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    
     public function down()
     {
         Schema::dropIfExists('competicaos');

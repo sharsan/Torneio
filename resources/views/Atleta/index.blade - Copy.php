@@ -31,15 +31,15 @@
         <td>{{$post['nome']}}</td>
         <td>{{$post['apelido']}}</td>
         <td>{{$post['cinturao']}}</td>
-        <td>{{$post['clube_id']}}</td>
-        <td>{{$post['categoria_id']}}</td>
-        <td>{{$post['escalao_id']}}</td>
+        <td>{{$post['clube']}}</td>
+        <td>{{$post['categoria']}}</td>
+        <td>{{$post['escalao']}}</td>
         <td>{{$post['peso']}}</td>
         <td>{{$post['sexo']}}</td>
         <td>{{$post['idade']}}</td> 
         <td>{{$post['telefone']}}</td>
         <td>{{$post['email']}}</td> 
-        <td>{{$post['treinador_id']}}</td> 
+        <td>{{$post['treinador']}}</td> 
         <td>{{$post['created_at']}}</td>
         <td>{{$post['updated_at']}}</td>
 

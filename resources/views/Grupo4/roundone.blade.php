@@ -69,7 +69,10 @@
        <div class="form-group col-md-8">    
            <h3>Selecione os competidores</h3>   
                                            <!-- inscrito A -->
-          
+       
+   <label> 
+ <a href="{{URL::to('inscrito/create')}}" title=""><h4>+ Adicionar competidor</h4></a>
+   </label>   
             <div class="col-md-10"> <br> 
                   <label for="A"> Atleta A:
                           <select id="A" name="A">

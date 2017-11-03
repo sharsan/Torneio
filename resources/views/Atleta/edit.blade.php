@@ -70,50 +70,42 @@
           </div>
           <div class="form-group col-md-10">    
                                        <!-- telefone --> 
-            <div class="col-md-3">                
-               <label for="telefone"> telefone:</label>
-               <input type="int" class="form-control" name="telefone"value="{{$atleta->telefone}}"></input></div>  
+              <div class="col-md-3">                
+                 <label for="telefone"> telefone:</label>
+                 <input type="int" class="form-control" name="telefone"value="{{$atleta->telefone}}"></input>
+              </div>  
                  
-            <div class="col-md-6">         
+              <div class="col-md-6">         
                                          <!-- email --> 
-               <label for="email"> email: </label> 
-               <input type="text" class="form-control" name="email"value="{{$atleta->email}}"></input>
-            </div> 
+                <label for="email"> email: </label> 
+                 <input type="text" class="form-control" name="email"value="{{$atleta->email}}"></input>
+              </div> 
               
           </div> 
                                                  
                                       <!-- Clube -->
-          
           <div class="col-md-12"> 
              <div class="form-group col-md-10"> <br>
-                 <label for="clube">Clube:
-                   <tr>   
-                    <select name="clube" id="clube"> 
-                      <option value="Outro">--OUTRO--</option>
-                      <option value="Cidade da Matola">Cidade da Matola</option>
-                      <option value="EDM">EDM</option>
-                      <option value="Maria Clara">Maria Clara</option>
-                      <option value="Naval">Naval</option>
-                      <option value="Nyamunda">Nyamunda</option>
-                      <option value="7 de Setembro">7 de Setembro</option>
-                    </select> 
-                    </tr>  
-                 </label>
-  
-                                 <!--Categoria -->
-        
-                 <label for="categoria">Categoria :
+                 <label for="clube">Clube :
                     <tr> 
-                      <select name="categoria" id="categoria">  
-                         <option value="Sénior">Sénior</option>
-                         <option value="Junior">Junior</option>
-                         <option value="Juvenil">Juvenil</option>
-                         <option value="Pré-juvenil">Pré-juvenil</option>
-                         <option value="Benjamin">Benjamin</option>
+                      <select name="clube" id="clube"> 
+                            @foreach($clube as $clb)
+                          <option value="{{$clb->nome}}">{{$clb->nome}} </option>
+                        @endforeach  > -->
                       </select>  
                     </tr>          
-                 </label> 
-              
+                 </label>  
+                                 <!--Categoria -->
+          
+                 <label for="categoria">Categoria :
+                    <tr> 
+                      <select name="categoria" id="categoria"> 
+                            @foreach($categoria as $clb)
+                          <option value="{{$clb->nome}}">{{$clb->nome}} </option>
+                        @endforeach  
+                      </select>  
+                    </tr>          
+                 </label>  
                            <!-- Cinturao -->  
          
                  <label for="cinturao">Cinturao: 
@@ -130,32 +122,25 @@
                   </tr>
                  </label>  
                </div>
-         </div>
-               <div class="form-group col-md-6"> 
-                <div class="col-md-6"> 
+
                              <!-- Escalao  --> 
-                 <label for="escalao">Escalão de peso :
-                  
-                    <select name="escalao" id="escalao"> 
-                        <option value="+100">+100</option>
-                        <option value="-100">-100</option>
-                        <option value="-90">-90</option>
-                        <option value="-81">-81</option>
-                        <option value="+78">+78</option>
-                        <option value="-78">-78</option>
-                        <option value="-73">-73</option>
-                        <option value="-70">-70</option>
-                        <option value="-66">-66</option>
-                        <option value="-63">-63</option>
-                        <option value="-60">-60</option>
-                        <option value="-57">-57</option>
-                        <option value="-52">-52</option>
-                        <option value="-48">-48</option>
-                    </select>  
-                  </label>  
+ 
+               <div class="form-group col-md-10"> <br>
+                 <div class="col-md-2"> 
+                   <label for="escalao">Escalão de peso :
+                    <tr> 
+                      <select name="escalao" id="escalao"> 
+                            @foreach($escalao as $esc)
+                          <option value="{{$esc->nome}}">{{$esc->nome}} </option>
+                        @endforeach  > -->
+                      </select>  
+                    </tr>          
+                   </label>   
                  </div>
-                              <!-- Peso --> 
-               <div class="col-md-3">        
+ 
+                              <!-- Peso -->  
+               
+                   <div class="col-md-2"> 
                     <label for="peso">Peso (Kg): 
                         <input type="int" class="form-control" name="peso"value="{{$atleta->peso}}"></input>
                     </label>   

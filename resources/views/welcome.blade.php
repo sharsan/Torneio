@@ -5,7 +5,7 @@
            <div class="form-group row"><center>
 <a href="{{URL::to('atleta')}}" title="" class="btn btn-warning"><h4>Atletas</h4></a> 
    
-<a href="{{URL::to('categoria')}}" title="" class="btn btn-warning"><h4>Categoria</h4></a> 
+<!-- <a href="{{URL::to('categoria')}}" title="" class="btn btn-warning"><h4>Categoria</h4></a>  -->
    
 <a href="{{URL::to('treinador')}}" title="" class="btn btn-warning"><h4>Treinadores</h4></a> 
 

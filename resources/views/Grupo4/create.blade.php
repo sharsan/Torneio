@@ -68,7 +68,7 @@
 
        <div class="form-group col-md-8">    
            <h3>Selecione os competidores</h3>   
-                                           <!-- insceta A -->
+                                           <!-- inscrito A -->
        
    <label> 
  <a href="{{URL::to('inscrito/create')}}" title=""><h4>+ Adicionar competidor</h4></a>
@@ -83,7 +83,7 @@
                           </select> 
                   </label>    
             </div> 
-                                            <!-- insceta B -->
+                                            <!-- inscrito B -->
             <div class="col-md-10"> 
                   <label for="B"> Atleta B:
                          <select id="B" name="B">
@@ -94,7 +94,7 @@
                           </select> 
                   </label>
             </div> 
-                                            <!-- insceta C -->
+                                            <!-- inscrito C -->
             <div class="col-md-10"> 
                   <label for="C"> Atleta C:
                           <select id="C" name="C">
@@ -105,7 +105,7 @@
                           </select> 
                   </label>
             </div>
-                                            <!-- insceta D -->
+                                            <!-- inscrito D -->
             <div class="col-md-10"> 
                   <label for="D"> Atleta D:
                           <select id="D" name="D">

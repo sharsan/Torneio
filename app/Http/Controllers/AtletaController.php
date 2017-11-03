@@ -11,25 +11,46 @@ use App\Escalao;
 class AtletaController extends Controller
 {   
 
+  public function teste()
+  {
+
+      return  Atleta::all();
+
+  }
+
    public function index()
        {
+
         $atleta = Atleta::all()->toArray(); 
+
+          dd($atleta);
+        // $users = DB::table('users')
+        //     ->join('contacts', 'users.id', '=', 'contacts.user_id')
+        //     ->join('orders', 'users.id', '=', 'orders.user_id')
+        //     ->select('users.*', 'contacts.phone', 'orders.price')
+        //     ->get();
+
+            
         return view('atleta.index', compact('atleta'));
        } 
 
             public function create()
        {              
              $atleta =Atleta::all();  
-             $categoria =Categoria::all(); 
-             $clube =Clube::all(); 
-             $escalao =Escalao::all();
-           return view("atleta.create",['categoria'=>$categoria,'clube'=>$clube,'escalao'=>$escalao]);
+             $categoria_id =Categoria::all(); 
+             $clube_id =Clube::all(); 
+             $escalao_id =Escalao::all();
+        return view("atleta.create",['categoria_id'=>$categoria,'clube_id'=>$clube,'escalao_id'=>$escalao_id]);
        }   
-
+ 
     public function edit($id)
        { 
         $atleta= Atleta::find($id);
-        return view('atleta.edit',compact('atleta','id'));
+        $categoria_id = Categoria::all();
+        $clube_id = Clube::all();
+        $escalao_id = Escalao::all();
+        // return view('atleta.edit',compact('atleta','id','categoria','clube'));
+        return view('atleta.edit',compact('atleta','id','categoria_id','clube_id','escalao_id'));
        } 
 
     public function store(Request $request)
@@ -52,9 +73,9 @@ class AtletaController extends Controller
           'nome' => $request->get('nome'),
           'apelido' => $request->get('apelido'),
           'cinturao' => $request->get('cinturao'), 
-          'clube' => $request->get('clube'), 
-          'categoria' => $request->get('categoria'), 
-          'escalao' => $request->get('escalao'), 
+          'clube_id' => $request->get('clube_id'), 
+          'categoria_id' => $request->get('categoria_id'), 
+          'escalao_id' => $request->get('escalao_id'), 
           'peso' => $request->get('peso'), 
           'sexo' => $request->get('sexo'),  
           'idade' => $request->get('idade'),  
@@ -62,13 +83,12 @@ class AtletaController extends Controller
           'email' => $request->get('email'), 
           'treinador' => $request->get('treinador'), 
           'descricao' => $request->get('descricao') 
-          //campos de exigencia de valores
-        ]);
+       
+        ]); 
 
            Atleta::create($request->all());
              return back()->with('success', 'Atleta adicionado com sucesso');
- 
-        // return redirect('/atleta');
+  
         }  
 
     public function show($id) 

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Grupo4;   
 use App\Arbitro;  
 use App\Escalao;  
+use App\Inscrito;  
 use App\Torneio;  
 
 class Grupo4Controller extends Controller
@@ -17,9 +18,10 @@ class Grupo4Controller extends Controller
          public function create()
          {               
              $arbitro  = Arbitro::all(); 
-             $escalao  = Escalao::all();  
+             $escalao  = Escalao::all();
+             $inscrito  = Inscrito::all();  
              $torneio  = Torneio::all(); 
-               return view("grupo4.create",['arbitro'=>$arbitro,'escalao'=>$escalao,'torneio'=>$torneio]);
+               return view("grupo4.create",['arbitro'=>$arbitro,'escalao'=>$escalao,'inscrito'=>$inscrito,'torneio'=>$torneio]);
          }   
 
          public function edit($id)
@@ -85,18 +87,27 @@ $existe=Grupo4::where("nome",$request->get('nome'))->where("grupo4",$request->ge
 
                 return view('grupo4.show',compact('grupo4')); 
             }     
-
-
-         // public function round1($id) 
-         //    { 
-         //         $grupo4 = Grupo4::find($id); 
-
-         //        return view('grupo4.round1',compact('grupo4','id')); 
-         //    }      
-         public function action_round1() 
+      
+         public function round1() 
             { 
-                 $grupo4 = Grupo4::find(); 
+             $arbitro  = Arbitro::all(); 
+             $escalao  = Escalao::all();
+             $inscrito  = Inscrito::all();  
+             $torneio  = Torneio::all(); 
+               return view("grupo4.round1",['arbitro'=>$arbitro,'escalao'=>$escalao,'inscrito'=>$inscrito,'torneio'=>$torneio]);
+            }     
+         // public function round1() 
+         //    { 
 
-                return view::make('grupo4.round1'); 
+         //     $grupo4 =Grupo4::all()->toArray();  
+         //     return view("grupo4.round1",compact('grupo4'));  
+         //    } 
+         public function roundone() 
+            { 
+             $arbitro  = Arbitro::all(); 
+             $escalao  = Escalao::all();
+             $inscrito  = Inscrito::all();  
+             $torneio  = Torneio::all(); 
+               return view("grupo4.roundone",['arbitro'=>$arbitro,'escalao'=>$escalao,'inscrito'=>$inscrito,'torneio'=>$torneio]);
             }            
 }

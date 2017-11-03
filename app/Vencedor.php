@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vencedor extends Model
 {
-protected $fillable=['nome','escalao','primeiro','segundo','terceiro','terceiro2','juri','descricao','created_at','updated_at'];
+protected $fillable=['id','nome','escalao','primeiro','segundo','terceiro','terceiro2','juri','descricao','created_at','updated_at'];
 }

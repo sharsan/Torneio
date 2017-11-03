@@ -10,7 +10,8 @@ class CreateClubesTable extends Migration
         Schema::create('clubes', function (Blueprint $table) 
         {
             $table->increments('id');
-            $table->string('nome', 45); 
+            $table->string('nome', 45);
+            $table->string('descricao', 150); 
             $table->timestamps(); 
         });
     }
