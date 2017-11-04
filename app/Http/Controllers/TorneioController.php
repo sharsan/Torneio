@@ -31,45 +31,34 @@ class TorneioController extends Controller
         'nome' => 'required|unique:torneios|max:40',
             ]);
             $torneio = new Torneio([
-                'nome' => $request->get('nome'),
-                'estado' => $request->get('estado'),  
+                'nome' => $request->get('nome'),   
                 'datai' => $request->get('datai'),   
-                'datat' => $request->get('datat'),   
-                'participantes' => $request->get('participantes'), 
-                'rapazes' => $request->get('rapazes'), 
-                'raparigas' => $request->get('raparigas'), 
-                'desclassificados' => $request->get('desclassificados'), 
+                'datat' => $request->get('datat'),       
                 'descricao' => $request->get('descricao')
                //campos de exigencia de valores
                               ]);
       Torneio::create($request->all());
             return back()->with('success', 'Torneio adicionado com sucesso'); 
  
-         }
- 
+         }      
+         
          public function update(Request $request, $id)
-         {      
-            $torneio = Torneio::find($id);
-           $this->validate(request(), [
+         {     
+           request()->validate(  
+          [   
                   'nome' => 'required' 
-            ]); 
-             $torneio->nome = $request->get('nome');  
-             $torneio->estado = $request->get('estado');  
-             $torneio->datai = $request->get('datai'); 
-             $torneio->datat = $request->get('datat'); 
-             $torneio->participantes = $request->get('participantes');  
-             $torneio->rapazes = $request->get('rapazes'); 
-             $torneio->raparigas = $request->get('raparigas');  
-             $torneio->desclassificados = $request->get('desclassificados'); 
-             $torneio->descricao = $request->get('descricao'); 
-             $torneio->save();
-             return redirect('torneio')->with('success','Torneio actualizado com sucesso');
-         }
+          ]); 
+          Torneio::find($id)->update($request->all());
+           return redirect()->route('torneio.index')
+
+                        ->with('success','Torneio actualizado com sucesso');  
+         }     
+
          public function destroy($id)
         {
              $torneio = Torneio::find($id);
              $torneio->delete();
 
            return redirect('/torneio');
-      }  
+        }  
 }

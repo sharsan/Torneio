@@ -54,25 +54,19 @@ class TreinadorController extends Controller
             return back()->with('success', 'Treinador adicionado com sucesso'); 
 
              } 
+         
+         public function update(Request $request, $id)
+         {     
+           request()->validate(  
+          [   
+                  'nome' => 'required' 
+          ]); 
+          Treinador::find($id)->update($request->all());
+           return redirect()->route('treinador.index')
 
-    public function update(Request $request, $id)
-         {  
-
-        $treinador = Treinador::find($id);
-        $this->validate(request(), [
-          'nome' => 'required' 
-            ]);
-        $treinador ->apelido = $request->get('apelido');
-        $treinador ->nome = $request->get('nome');
-        $treinador ->clube = $request->get('clube');
-        $treinador ->sexo = $request->get('sexo');
-        $treinador ->idade = $request->get('idade');
-        $treinador ->telefone = $request->get('telefone');
-        $treinador ->email = $request->get('email');
-        $treinador ->descricao = $request->get('descricao');
-        $treinador->save();
-        return redirect('treinador')->with('success','Treinador actualizado com sucesso'); 
-    }    
+                        ->with('success','Torneio actualizado com sucesso');  
+         }      
+         
          public function destroy($id)
             {
                $treinador = Treinador::find($id);

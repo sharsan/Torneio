@@ -55,24 +55,22 @@ $existe=Grupo4::where("nome",$request->get('nome'))->where("grupo4",$request->ge
             return back()->with('success', 'Ja existe este registo');
                                 }
             }  
-
+            
          public function update(Request $request, $id)
-
-            { 
-                request()->validate(  
-                 [ 
+         {     
+           request()->validate(  
+          [   
                       'A' => 'required', 
                       'B' => 'required', 
                       'C' => 'required', 
                       'D' => 'required'  
-                  ]);
-                Grupo4::find($id)->update($request->all());
+          ]); 
+          Grupo4::find($id)->update($request->all());
+           return redirect()->route('grupo4.index')
 
-             return redirect()->route('grupo4.index')
-
-                        ->with('success','Actualizado com sucesso'); 
-                   } 
-            
+                        ->with('success','Grupo actualizado com sucesso');  
+         }
+   
          public function destroy($id)
             {
                $grupo4 = Grupo4::find($id);

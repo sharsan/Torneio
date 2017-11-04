@@ -10,19 +10,11 @@ class CreateTorneiosTable extends Migration
         Schema::create('torneios', function (Blueprint $table) 
         {
             $table->increments('id');   
-            $table->string('nome', 100);   
-            $table->string('estado', 100);      
+            $table->string('nome', 100);        
             $table->date('datai');      
-            $table->date('datat');
-            $table->integer('inscritos_id')->unsigned()->index();  
-            $table->integer('desclassificados');   
+            $table->date('datat');    
             $table->string('descricao', 150);  
-            $table->timestamps();
-
- 
- 
-            $table->foreign('inscritos_id')->references('id')->on('inscritos');
-
+            $table->timestamps(); 
         });
     }
  

@@ -37,20 +37,17 @@ class ClubeController extends Controller
       Clube::create($request->all());
             return back()->with('success', 'Clube adicionado com sucesso'); 
  
-         }
- 
+         } 
          public function update(Request $request, $id)
          {     
-             $clube = Clube::find($id);
-             
-           $this->validate(request(), [
+           request()->validate(  
+          [   
                   'nome' => 'required' 
-            ]);
-             $clube->nome = $request->get('nome');  
-             $clube->descricao = $request->get('descricao'); 
-             $clube->save();
-             return redirect('clube')->with('success','Clube actualizado com sucesso');
- 
+          ]); 
+          Clube::find($id)->update($request->all());
+           return redirect()->route('clube.index')
+
+                        ->with('success','Categoria actualizada com sucesso');  
          }
  
          public function destroy($id)

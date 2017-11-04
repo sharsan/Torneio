@@ -37,20 +37,18 @@ class EstadoController extends Controller
             return back()->with('success', 'Estado adicionado com sucesso'); 
  
          }
- 
          public function update(Request $request, $id)
-         {     
-             $estado = Estado::find($id);
-             
-           $this->validate(request(), [
+         {          
+           request()->validate(  
+          [   
                   'nome' => 'required' 
-            ]);
-             $estado->nome = $request->get('nome');   
-             $estado->save();
-             return redirect('estado')->with('success','Estado actualizado com sucesso');
- 
+          ]); 
+          Estado::find($id)->update($request->all());
+           return redirect()->route('estado.index')
+
+                        ->with('success','Estado actualizado com sucesso');   
          }
- 
+  
          public function destroy($id)
         {
            $estado = Estado::find($id);

@@ -59,20 +59,20 @@ $existe=Vencedor::where("nome",$request->get('nome'))->where("escalao",$request-
          if($existe==false){
              Vencedor::create($request->all()); 
             return back()->with('success', 'Vencedor adicionado com sucesso');
-          }else{
+                       }else{
             return back()->with('success', 'Ja existe este registo');
-          }
-                    } 
+                        }
+          } 
+
          public function update(Request $request, $id)
-
-            {   request()->validate(
+           {  
+            request()->validate(
                  [ 
-
-            'nome' => 'required' 
-                  ]);
+                       'nome' => 'required' 
+                                    ]);
           Vencedor::find($id)->update($request->all());
 
-             return redirect()->route('arbitro.index')
+             return redirect()->route('vencedor.index')
 
                         ->with('success','Actualizado com sucesso'); 
                    } 

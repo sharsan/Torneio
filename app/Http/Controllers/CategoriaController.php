@@ -37,20 +37,17 @@ class CategoriaController extends Controller
       Categoria::create($request->all());
             return back()->with('success', 'Categoria adicionado com sucesso'); 
  
-         }
- 
-         public function update(Request $request, $id)
-         {     
-             $categoria = Categoria::find($id);
-             
-           $this->validate(request(), [
+         } 
+        public function update(Request $request, $id)
+         {      
+           request()->validate(  
+          [   
                   'nome' => 'required' 
-            ]);
-             $categoria->nome = $request->get('nome');  
-             $categoria->descricao = $request->get('descricao'); 
-             $categoria->save();
-             return redirect('categoria')->with('success','Categoria actualizado com sucesso');
- 
+          ]); 
+          Categoria::find($id)->update($request->all());
+           return redirect()->route('categoria.index')
+
+                        ->with('success','Categoria actualizada com sucesso');  
          }
  
          public function destroy($id)

@@ -44,26 +44,23 @@ $existe=FaseGr::where("nome",$request->get('nome'))->where("escalao",$request->g
          if($existe==false){
              faseGr::create($request->all()); 
             return back()->with('success', 'Resultados adicionados com sucesso');
-          }else{
+                   }else{
             return back()->with('success', 'Ja existe este registo');
-          }
-                    } 
-         public function update(Request $request, $id)
-
-            { 
-
-             $faseGr = FaseGr::find($id);
+                   }
         
-        // $this->validate(request(), [         
-        //   'nome' => 'required'   
-        //     ]);
-        $faseGr->A = $request->get('A');
-        $faseGr->B = $request->get('B');
-        $faseGr->C = $request->get('C');
-        $faseGr->d = $request->get('D'); 
-        $faseGr->save();
-        return redirect('/faseGr')->with('success','Grupo actualizado com sucesso');
-    }
+          } 
+
+         public function update(Request $request, $id)
+         {          
+           request()->validate(  
+                [   
+                  'nome' => 'required' 
+                ]); 
+          FaseGr::find($id)->update($request->all());
+           return redirect()->route('faseGr.index')
+
+                        ->with('success','Grupo actualizado com sucesso');   
+         } 
             
          public function destroy($id)
             {

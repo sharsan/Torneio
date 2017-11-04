@@ -10,7 +10,6 @@ class Categoria extends Model
 	protected $fillable=['id','nome', 'descricao','created_at','updated_at'];
 
 	protected $with = ['atletas'];
-	
 
 	public function atletas()
 	{

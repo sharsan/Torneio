@@ -36,19 +36,17 @@ class EscalaoController extends Controller
             Escalao::create($request->all());
             return back()->with('success', 'Escalao adicionado com sucesso'); 
  
-         }
- 
+         } 
          public function update(Request $request, $id)
-         {     
-             $escalao = Escalao::find($id);
-             
-           $this->validate(request(), [
+         {          
+           request()->validate(  
+          [   
                   'nome' => 'required' 
-            ]);
-             $escalao->nome = $request->get('nome');   
-             $escalao->save();
-             return redirect('escalao')->with('success','Escalao actualizado com sucesso');
- 
+          ]); 
+          Escalao::find($id)->update($request->all());
+           return redirect()->route('escalao.index')
+
+                        ->with('success','Escalao actualizado com sucesso');   
          }
  
          public function destroy($id)

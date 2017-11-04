@@ -47,20 +47,18 @@ class InscritoController extends Controller
             return back()->with('success', 'Competidor adicionado com sucesso'); 
  
          }
- 
          public function update(Request $request, $id)
-         {      
-            $inscrito = Inscrito::find($id);
-           $this->validate(request(), [
+         {     
+           request()->validate(  
+          [   
                   'nome' => 'required' 
-            ]); 
-             $inscrito->nome = $request->get('nome');  
-             $inscrito->competidor = $request->get('competidor');  
-             $inscrito->escalao = $request->get('escalao');  
-             $inscrito->descricao = $request->get('descricao'); 
-             $inscrito->save();
-             return redirect('inscrito')->with('success','Competidor actualizado com sucesso');
+          ]); 
+          Inscrito::find($id)->update($request->all());
+           return redirect()->route('inscrito.index')
+
+                        ->with('success','Inscrição actualizada com sucesso');  
          }
+  
          public function destroy($id)
         {
              $inscrito = Inscrito::find($id);
