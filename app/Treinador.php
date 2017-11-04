@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Treinador extends Model
 {
-     protected $fillable =['id','nome','apelido','clube','sexo','idade','telefone','email','descricao','created_at','updated_at'];
+     protected $fillable =['nome','apelido','clube','sexo','idade','telefone','email','descricao'];
+     protected $guarded = ['id', 'created_at', 'update_at'];
   
 	protected $with = ['atletas']; 
 

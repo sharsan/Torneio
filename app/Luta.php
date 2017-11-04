@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Escalao extends Model
-{    
+class Luta extends Model
+{ 
 	
-	protected $fillable=['nome', 'descricao']; 
+	protected $fillable=['atleta1_id','atleta2_id', 'juri_id', 'descricao'];
     protected $guarded = ['id', 'created_at', 'update_at'];
 
 	protected $with = ['atletas']; 

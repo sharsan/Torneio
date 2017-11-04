@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class FaseGr extends Model
 {
-protected $fillable=['id','A','B','C','D','juri', 'descricao','created_at','updated_at'];
+    protected $fillable=['A','B','C','D','juri', 'descricao'];
+    protected $guarded = ['id', 'created_at', 'update_at'];
 } 
