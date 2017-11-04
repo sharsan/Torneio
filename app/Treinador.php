@@ -11,8 +11,8 @@ class Treinador extends Model
   
 	protected $with = ['atletas']; 
 
-	public function atletas()
+	public function clubes()
 	{
-		return $this->hasMany('App\Atleta', 'id');
+		return $this->hasManyThrough('App\Clube','App\Atleta' );
 	}
 }

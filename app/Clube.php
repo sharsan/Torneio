@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Clube extends Model
 {
 	
-	protected $fillable=['nome', 'descricao'];
-
+	protected $fillable=['nome', 'descricao']; 
     protected $guarded = ['id', 'created_at', 'update_at'];
 
 	protected $with = ['atletas']; 

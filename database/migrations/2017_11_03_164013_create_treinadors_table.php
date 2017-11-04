@@ -19,7 +19,7 @@ class CreateTreinadorsTable extends Migration
             $table->integer('telefone'); 
             $table->string('email', 40);     
             $table->string('descricao', 100);  
-            $table->timestamps();
+            $table->timestamps()->nullable();
         });
     }
 

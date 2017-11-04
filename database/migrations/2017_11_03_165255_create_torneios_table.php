@@ -14,7 +14,7 @@ class CreateTorneiosTable extends Migration
             $table->date('datai');      
             $table->date('datat');    
             $table->string('descricao', 150);  
-            $table->timestamps(); 
+            $table->timestamps()->nullable(); 
         });
     }
  

@@ -14,7 +14,7 @@ class CreateInscritosTable extends Migration
             $table->string('torneiro_id')->unsigned()->index(); 
             $table->string('escalao_id')->unsigned()->index();    
             $table->string('descricao', 150);
-            $table->timestamps();
+            $table->timestamps()->nullable();
 
 
             $table->foreign('atleta_id')->references('id')->on('atletas');

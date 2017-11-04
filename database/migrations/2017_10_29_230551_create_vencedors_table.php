@@ -18,7 +18,7 @@ class CreateVencedorsTable extends Migration
             $table->string('terceiro2', 40);           
             $table->string('juri', 40);      
             $table->string('descricao', 150);  
-            $table->timestamps(); 
+            $table->timestamps()->nullable(); 
         });
     }
  

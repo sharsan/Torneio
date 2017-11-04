@@ -22,7 +22,7 @@ class CreateAtletasTable extends Migration
             $table->string('email', 40); 
             $table->integer('treinador_id')->unsigned()->index();  
             $table->string('descricao', 150);
-            $table->timestamps();
+            $table->timestamps()->nullable();
 
             
             $table->foreign('categoria_id')->references('id')->on('categorias');
