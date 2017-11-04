@@ -11,9 +11,7 @@
         <th>Evento</th>
         <th>Estado</th> 
         <th>Inicio</th>
-        <th>Término</th>
-        <th>Inscritos</th> 
-        <th>desclassificados</th> 
+        <th>Término</th> 
         <th>Criado em</th>
         <th>Actualizado em</th> 
       </tr>
@@ -26,9 +24,7 @@
         <td>{{$post['nome']}}</td>
         <td>{{$post['estado']}}</td>
         <td>{{$post['datai']}}</td>
-        <td>{{$post['datat']}}</td>
-        <td>{{$post['inscritos']}}</td> 
-        <td>{{$post['desclassificados']}}</td> 
+        <td>{{$post['datat']}}</td> 
         <td>{{$post['created_at']}}</td>
         <td>{{$post['updated_at']}}</td>
 

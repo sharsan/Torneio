@@ -51,53 +51,8 @@
                   <meta name="datat" content="width=device-width"> 
                       <input type="date"> 
                 </label> 
-            </div>            
-                                         <!-- Estado -->
-
-            <div class="col-md-12">   <br>
-                   <label for="estado"> Estado:  
-                     <select id="estado" name="estado">
-                  
-                          @foreach($estado as $est)
-                          <option value="{{$est->nome}}">{{$est->nome}} </option>
-                        @endforeach
-                     </select> 
-                      
-                   </label>  
-                   <label> <a href="{{URL::to('estado')}}" title="">
-                    <h5>+ Outro estado</h5></a>  
-                   </label>     
-
-            </div>  
-         </div>     
-                                     <!-- Nº de participantes  -->
-
-         <div class="form-group col-md-10">                        
-            <div class="col-md-3"> 
-               <label for="participantes">Nº de participantes:
-                 <input type="int" class="form-control" name="participantes"></input> 
-               </label>
-            </div>               
-                                     <!-- Nº de rapazes  -->
-                                  
-            <div class="col-md-3"> 
-               <label for="rapazes">Nº de rapazes:
-                 <input type="int" class="form-control" name="rapazes"></input> 
-               </label>
-            </div>                  <!-- Nº de raparigas  -->
-                                  
-            <div class="col-md-3"> 
-               <label for="raparigas">Nº de raparigas:
-                 <input type="int" class="form-control" name="raparigas"></input> 
-               </label>
-            </div>                  <!-- Nº de desclassificados  -->
-                                  
-            <div class="col-md-3"> 
-               <label for="desclassificados">Nº de desclassificados:
-                 <input type="int" class="form-control" name="desclassificados"></input> 
-               </label>
-           </div>  
-         </div>
+            </div>             
+         </div>    
                                     <!-- Outros detalhes --> 
 
          <div class="form-group col-md-12">
