@@ -32,8 +32,8 @@
                                      <!-- Nome do Evento -->
             <div class="col-md-12"> 
                 <br>
-                 <label for="nome"> Torneio:  
-                        <select id="nome" name="nome">
+                 <label for="nomeTorneio"> Torneio:  
+                        <select id="nomeTorneio" name="nomeTorneio">
                   
                         @foreach($torneio as $trn)
                           <option value="{{$trn->nome}}">{{$trn->nome}} </option>
@@ -44,8 +44,8 @@
                                    <!-- Nome do Competidor -->
 
             <div class="col-md-10"> <br> 
-                 <label for="competidor"> Nome do Competidor: 
-                          <select id="competidor" name="competidor">
+                 <label for="atleta"> Nome do Competidor: 
+                          <select id="atleta" name="atleta">
                   
                           @foreach($atleta as $atl)
                           <option value="{{$atl->nome}}">{{$atl->nome}} </option>

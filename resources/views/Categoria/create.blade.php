@@ -4,7 +4,7 @@
 <div class="container"> 
        <link rel="stylesheet" href="{{asset('css/app.css')}}">
       <h2>Registrar categoria</h2><br>
-   <a href="{{URL::to('atleta/create')}}" title=""><h4><- voltar</h4></a>
+   <a href="{{URL::to('categoria')}}" title=""><h4><- voltar</h4></a>
              
                @if ($errors->any())
                    <div class="alert alert-danger">
@@ -24,26 +24,27 @@
 
   <form method="post" action="{{url('categoria')}}">
           {{csrf_field()}}
-                               <!-- Nome -->
+                              
  
         <div class="row">
           <div class="form-group col-md-8">  
              
                              <!-- Nome -->
             <div class="col-md-8">
-                <label for="nome"> Nome :</label>
-        <input type="text" class="form-control" name="nome"placeholder="Ex: Juvenis "></input> 
+                <label for="nometorneio"> Nome :</label>
+        <input type="text" class="form-control" name="nometorneio" placeholder="Ex: Juvenis "></input> 
             </div>
-        </div>
+        </div>  
+      </div>
 
                                      <!-- Outros detalhes --> 
-
+<!-- 
          <div class="form-group col-md-12">
              <br> <label for="descricao" class="col-sm-2 col-form-label col-form-label-sm">Outros detalhes
                
           <br> <br><textarea name="nota" rows="8" cols="80"></textarea> 
               </label>
-        </div>
+        </div> -->
 
    <div class="form-group col-md-4"> 
     <button type="submit" class="btn btn-success" style="margin-left:38px">Adicionar categoria</button>  

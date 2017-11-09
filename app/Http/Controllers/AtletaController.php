@@ -7,115 +7,98 @@ use App\Atleta;
 use App\Categoria;  
 use App\Clube;     
 use App\Escalao;   
+use App\Treinador;   
 
 class AtletaController extends Controller
 {   
 
-  public function teste()
+  public function index()
   {
+    $atleta = Atleta::all()->toArray(); 
+    return view('atleta.index', compact('atleta'));
+} 
 
-      return  Atleta::all();
+public function create()
+{              
+ $atleta =Atleta::all();  
+ $categoria =Categoria::all(); 
+ $clube=Clube::all(); 
+ $escalao =Escalao::all();
+ $treinador =Treinador::all();
+ return view("atleta.create",['categoria'=>$categoria,'clube'=>$clube,'escalao'=>$escalao,'treinador'=>$treinador]);
+}   
 
-  }
+public function edit($id)
+{ 
+  $atleta= Atleta::find($id);
+  return view('atleta.edit',compact('atleta','id'));
+} 
 
-   public function index()
-       {
+public function update(Request $request, $id)
+{ 
+   request()->validate(  
+      [   
+         'nome' => 'required|unique:atletas|min:3,max:40',    
+     ]); 
+   Atleta::find($id)->update($request->all());
+   return redirect()->route('atleta.index')
 
-        $atleta = Atleta::all()->toArray(); 
+   ->with('success','Atleta actualizado com sucesso'); 
+}
 
-          // dd($atleta);
-        // $users = DB::table('users')
-        //     ->join('contacts', 'users.id', '=', 'contacts.user_id')
-        //     ->join('orders', 'users.id', '=', 'orders.user_id')
-        //     ->select('users.*', 'contacts.phone', 'orders.price')
-        //     ->get();
+public function store(Request $request)
+{      
+   $existe=$request->get('idade')!="";
 
-            
-        return view('atleta.index', compact('atleta'));
-       } 
+   if($existe==true){
+     $this->validate(request(), [
+        'idade'=> 'numeric|min:3|max:90',  
+    ]);
+ }
+ else{  
 
-            public function create()
-       {              
-             $atleta =Atleta::all();  
-             $categoria_id =Categoria::all(); 
-             $clube_id =Clube::all(); 
-             $escalao_id =Escalao::all();
-        return view("atleta.create",['categoria_id'=>$categoria,'clube_id'=>$clube,'escalao_id'=>$escalao_id]);
-       }   
+     $this->validate(request(), [
+       'nome' => 'required|unique:atletas|min:3,max:40', 
+   ]);
+ }
+
+ $atleta = new atleta([
+  'nome' => $request->get('nome'),
+  'apelido' => $request->get('apelido'),
+  'cinturao' => $request->get('cinturao'), 
+  'clube' => $request->get('clube'), 
+  'categoria' => $request->get('categoria'), 
+  'escalao' => $request->get('escalao'), 
+  'peso' => $request->get('peso'), 
+  'sexo' => $request->get('sexo'),  
+  'idade' => $request->get('idade'),  
+  'telefone' => $request->get('telefone'), 
+  'email' => $request->get('email'), 
+  'treinador' => $request->get('treinador'), 
+  'descricao' => $request->get('descricao') 
+          //campos de exigencia de valores
+]);
+
+ Atleta::create($request->all());
+ return back()->with('success', 'Atleta adicionado com sucesso');
  
-    public function edit($id)
-       { 
-        $atleta= Atleta::find($id);
-        $categoria_id = Categoria::all();
-        $clube_id = Clube::all();
-        $escalao_id = Escalao::all();
-        // return view('atleta.edit',compact('atleta','id','categoria','clube'));
-        return view('atleta.edit',compact('atleta','id','categoria_id','clube_id','escalao_id'));
-       } 
+        // return redirect('/atleta');
+}  
 
-    public function store(Request $request)
-    {      
-           $existe=$request->get('idade')!="";
+public function show($id) 
+{ 
+  $atleta = Atleta::find($id);
 
-                   if($existe==true){
-                           $this->validate(request(), [
-              'idade'=> 'numeric|min:3|max:90',  
-                                                      ]);
-                                    }
-                   else{  
+  return view('atleta.show',compact('atleta')); 
+} 
 
-             $this->validate(request(), [
-               'nome' => 'required|unique:atletas|max:40', 
-                                        ]);
-             }
 
-        $atleta = new atleta([
-          'nome' => $request->get('nome'),
-          'apelido' => $request->get('apelido'),
-          'cinturao' => $request->get('cinturao'), 
-          'clube_id' => $request->get('clube_id'), 
-          'categoria_id' => $request->get('categoria_id'), 
-          'escalao_id' => $request->get('escalao_id'), 
-          'peso' => $request->get('peso'), 
-          'sexo' => $request->get('sexo'),  
-          'idade' => $request->get('idade'),  
-          'telefone' => $request->get('telefone'), 
-          'email' => $request->get('email'), 
-          'treinador' => $request->get('treinador'), 
-          'descricao' => $request->get('descricao') 
-       
-        ]); 
+public function destroy($id)
+{
+  $atleta = Atleta::find($id);
+  $atleta->delete();
 
-           Atleta::create($request->all());
-             return back()->with('success', 'Atleta adicionado com sucesso');
-  
-        }  
-
-    public function show($id) 
-    { 
-          $atleta = Atleta::find($id);
-
-            return view('atleta.show',compact('atleta')); 
-        } 
-        
-      public function update(Request $request, $id)
-      { 
-           request()->validate(  
-          [   
-                 'nome' => 'required'   
-           ]); 
-       Atleta::find($id)->update($request->all());
-           return redirect()->route('atleta.index')
-
-                        ->with('success','Atleta actualizado com sucesso'); 
-      }
-
-      public function destroy($id)
-      {
-              $atleta = Atleta::find($id);
-              $atleta->delete();
-
-       return redirect('atleta');
-     } 
+  return redirect('atleta');
+} 
 
 } 

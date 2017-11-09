@@ -49,10 +49,11 @@
                 <label for="datat">Data do termino :
                   <meta charset="utf-8"> 
                   <meta name="datat" content="width=device-width"> 
-                      <input type="date"> 
+                      <input type="date" placeholder="Ex: 2017-12-12 12:10:11"> 
                 </label> 
-            </div>             
-         </div>    
+            </div>
+         </div>            
+                                       
                                     <!-- Outros detalhes --> 
 
          <div class="form-group col-md-12">

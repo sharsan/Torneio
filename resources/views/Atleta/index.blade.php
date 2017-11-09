@@ -1,10 +1,19 @@
 @extends('admin')
 @section('content')
 <title>Atletas </title>
-  <div class="container">
+<div class="container">
   <h3><center><th>Atletas</th></center> </h3>
-    <table class="table table-striped"> 
-  <a href="{{URL::to('atleta/create')}}" title=""><h4>Adicionar atleta</h4></a>
+  <input type="text" maxlength="40" size="50" id="filtro-nome" class="form-control" onkeyup="filtrar(); mostrarLinhas();" placeholder="Pesquise pelo nome"></input>
+
+
+
+  <form method="GET">
+    <input type="text" name="name">
+    <input type="checkbox" name="hasCoffeeMachine" value="1"><span> Apply Filter</span>
+  </form>
+  
+  <table class="table table-striped" id="minhaTabela"> 
+    <a href="{{URL::to('atleta/create')}}" title=""><h4>Adicionar atleta</h4></a>
     <thead>
       <tr>
         <th>ID</th>
@@ -31,15 +40,15 @@
         <td>{{$post['nome']}}</td>
         <td>{{$post['apelido']}}</td>
         <td>{{$post['cinturao']}}</td>
-        <td>{{$post['clube_id']}}</td>
-        <td>{{$post['categoria_id']}}</td>
-        <td>{{$post['escalao_id']}}</td>
+        <td>{{$post['clube']}}</td>
+        <td>{{$post['categoria']}}</td>
+        <td>{{$post['escalao']}}</td>
         <td>{{$post['peso']}}</td>
         <td>{{$post['sexo']}}</td>
         <td>{{$post['idade']}}</td> 
         <td>{{$post['telefone']}}</td>
         <td>{{$post['email']}}</td> 
-        <td>{{$post['treinador_id']}}</td> 
+        <td>{{$post['treinador']}}</td> 
         <td>{{$post['created_at']}}</td>
         <td>{{$post['updated_at']}}</td>
 
@@ -49,12 +58,12 @@
             {{csrf_field()}}
             <input name="_method" type="hidden" value="DELETE">
             <button class="btn btn-danger" type="submit">Apagar</button>
-          
+
           </form>
         </td>
       </tr>
       @endforeach
     </tbody>
   </table>
-  </div>
+</div>
 @endsection

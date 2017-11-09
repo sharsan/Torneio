@@ -1,16 +1,12 @@
-<?php
-
-namespace App;
-
+<?php 
+namespace App; 
 use Illuminate\Database\Eloquent\Model;
 
 class Estado extends Model
 {
-    protected $fillable=['nome', 'descricao'];
-    protected $guarded = ['id', 'created_at', 'update_at'];
+	protected $fillable=[ 'nome'];
 
-	public function torneios()
-	{
-		return $this->hasMany('App\Torneio', 'id');
-	}
+	protected $guarded = ['id', 'created_at', 'update_at'];  
+	
+	protected $table = 'estados';
 }

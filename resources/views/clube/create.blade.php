@@ -32,17 +32,17 @@
                              <!-- Nome -->
             <div class="col-md-8">
                 <label for="nome"> Nome :</label>
-                <input type="text" class="form-control" name="nome"placeholder="Ex: Costa do Sol"></input> 
+                <input type="text" class="form-control" name="nome" placeholder="Ex: Costa do Sol"></input> 
             </div>
         </div>
 
                                      <!-- Outros detalhes --> 
-
+<!-- 
          <div class="form-group col-md-12">
              <br> <label for="descricao" class="col-sm-2 col-form-label col-form-label-sm">Outros detalhes
                
           <br> <br><textarea name="nota" rows="8" cols="80"></textarea> 
-              </label>
+              </label> -->
         </div>
 
    <div class="form-group col-md-4"> 

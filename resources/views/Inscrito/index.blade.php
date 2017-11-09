@@ -8,8 +8,9 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>Torneiro</th>
-        <th>Competidor</th>  
+        <th>Atleta</th>
+        <th>Torneio</th> 
+        <th>Escalão</th>  
         <th>Criado em</th>
         <th>Actualizado em</th> 
       </tr>
@@ -18,8 +19,9 @@
       @foreach($inscrito as $post)
       <tr>
         <td>{{$post['id']}}</td>
-        <td>{{$post['nome']}}</td>
-        <td>{{$post['competidor']}}</td>  
+        <td>{{$post['atleta']}}</td>
+        <td>{{$post['nomeTorneio']}}</td> 
+        <td>{{$post['escalao']}}</td>  
         <td>{{$post['created_at']}}</td>
         <td>{{$post['updated_at']}}</td>
 

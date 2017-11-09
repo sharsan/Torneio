@@ -21,7 +21,6 @@
     <div class="row">  <!--  este div inseri pra separa o Search com o restante -->
     <thead>    
 
-    <a href="{{URL::to('atleta/create')}}" title=""><h4><- voltar</h4></a>  
     <div class="form-group col-md-4"> <br>
         <a href="{{URL::to('categoria/create')}}" title=""><h4>Adicionar categoria</h4></a> 
     </div>

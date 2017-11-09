@@ -34,16 +34,9 @@
                <input type="text" class="form-control" name="nome"placeholder="Ex: Costa do Sol"value="{{$categoria->nome}}">
                </input>
          
-           </div> 
-                                    <!-- Outros detalhes --> 
-      
-       <div class="col-md-12"> 
-          <br>  <label for="descricao">Outros detalhes :
-                
-               <br><br>  <textarea name="descricao" rows="8" cols="90">{{$categoria->descricao}}</textarea> 
-            </label>
-            
-        </div>
+
+         
+           </div>  
         <div class="col-md-12">  
     <button type="submit" class="btn btn-success" style="margin-left:38px">Actualizar</button> 
         </div>

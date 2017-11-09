@@ -25,7 +25,7 @@
         <a href="{{URL::to('clube/create')}}" title=""><h4>Adicionar clube</h4></a> 
     </div>
  
-      <thead>
+      <thead> 
         <tr>
           <th>ID</th>
           <th>Nome</th> 

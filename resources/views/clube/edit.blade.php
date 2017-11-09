@@ -36,15 +36,15 @@
          
            </div> 
                                     <!-- Outros detalhes --> 
-      
+      <!-- 
        <div class="col-md-12"> 
           <br>  <label for="descricao">Outros detalhes :
                 
                <br><br>  <textarea name="descricao" rows="8" cols="90">{{$clube->descricao}}</textarea> 
-            </label>
+            </label> -->
             
-        </div>
-        <div class="col-md-12">  
+     
+        <div class="col-md-12"> <br> 
     <button type="submit" class="btn btn-success" style="margin-left:38px">Actualizar</button> 
         </div>
   </form>

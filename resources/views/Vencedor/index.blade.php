@@ -24,7 +24,7 @@
         @foreach($vencedor as $post)
         <tr>
           <td>{{$post['id']}}</td>
-          <td>{{$post['nome']}}</td>
+          <td>{{$post['nomeTorneio']}}</td>
           <td>{{$post['escalao']}}</td>
           <td>{{$post['primeiro']}}</td>
           <td>{{$post['segundo']}}</td>

@@ -1,84 +1,71 @@
-<?php
-
-namespace App\Http\Controllers;
-
+<?php 
+namespace App\Http\Controllers; 
 use Illuminate\Http\Request;
+use App\Luta;
+use App\Grupo; 
+use App\Arbitro; 
 
 class LutaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+  
+  public function index()
+  {
+     $luta = Luta::all()->toArray();        
+     return view('luta.index', compact('luta'));
+ } 
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+ public function create()
+ {     
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+     $grupo = Grupo::all();
+     $arbitro =Arbitro::all(); ;
+     return view("luta.create",['grupo'=>$grupo,'arbitro'=>$arbitro]); 
+ } 
+ 
+ public function edit($id)
+ {
+     $luta = Luta::find($id);
+     
+     return view('luta.edit', compact('luta','id')); 
+ } 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+ public function update(Request $request, $id)
+ {      
+     request()->validate(  
+        [   
+          'atleta1' => 'required',
+          'atleta2' => 'required' 
+      ]); 
+     Luta::find($id)->update($request->all());
+     return redirect()->route('luta.index')
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+     ->with('success','Luta actualizada com sucesso');  
+ }  
+ 
+ public function store(Request $request)
+ {      
+     $this->validate(request(), [
+        // 'nome' => 'required|unique:lutas|max:40',
+        'atleta' => 'required'
+    ]);
+     $luta = new Luta([
+        'grupo' => $request->get('grupo'),
+        'atleta1' => $request->get('atleta1')
+        'atleta2' => $request->get('atleta2'), 
+        'juri' => $request->get('juri'),  
+        'descricao' => $request->get('descricao')
+               //campos de exigencia de valores
+    ]);
+     Luta::create($request->all());
+     return back()->with('success', 'Luta adicionada com sucesso'); 
+     
+ }
+ 
+ public function destroy($id)
+ {
+     $luta = Luta::find($id);
+     $luta->delete();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+     return redirect('/luta');
+ }  
 }

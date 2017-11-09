@@ -30,8 +30,8 @@
                                <!-- Nome do campeonato  -->  
 
             <div class="col-md-10"> <br> 
-                  <label for="nome"> Nome do Torneio :
-                          <select id="nome" name="nome">
+                  <label for="nomeTorneio"> Nome do Torneio :
+                          <select id="nomeTorneio" name="nomeTorneio">
                   
                           @foreach($torneio as $tor)
                           <option value="{{$tor->nome}}">{{$tor->nome}} </option>

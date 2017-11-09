@@ -29,7 +29,7 @@
             <div class="form-group col-md-8">
                <div class="col-md-6">
                 <label for="nome">Novo estado :<br> 
-                  <input type="text" class="form-control" name="nome"placeholder="Ex: Anulado">  
+                  <input type="text" class="form-control" name="nome" placeholder="Ex: Anulado">  
                    </input>
                 </label>
             </div>   
