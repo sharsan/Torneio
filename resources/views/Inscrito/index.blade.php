@@ -1,10 +1,10 @@
 @extends('admin')
 @section('content')
 <title>Inscritos</title>
-  <div class="container">
+<div class="container">
   <h3><center><th>Lista de inscritos</th></center> </h3>
-    <table class="table table-striped"> 
-  <a href="{{URL::to('inscrito/create')}}" title=""><h4>Adicionar competidor</h4></a>
+  <table class="table table-striped"> 
+    <a href="{{URL::to('inscrito/create')}}" title=""><h4>Adicionar competidor</h4></a>
     <thead>
       <tr>
         <th>ID</th>
@@ -20,7 +20,7 @@
       <tr>
         <td>{{$post['id']}}</td>
         <td>{{$post['atleta']}}</td>
-        <td>{{$post['nomeTorneio']}}</td> 
+        <td>{{$post['torneio']}}</td> 
         <td>{{$post['escalao']}}</td>  
         <td>{{$post['created_at']}}</td>
         <td>{{$post['updated_at']}}</td>
@@ -37,5 +37,5 @@
       @endforeach
     </tbody>
   </table>
-  </div>
+</div>
 @endsection

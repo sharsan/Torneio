@@ -40,7 +40,7 @@
 
         <!-- Torneio --> 
         <label for="torneio"> Nome do Torneio:</label>
-        <input type="text" class="form-control" name="torneio" placeholder="Ex: Marcia" value="{{$et->torneio}}"></input>
+        <input type="text" class="form-control" name="torneio" placeholder="Ex: Campeonato Inter-provincial" value="{{$et->torneio}}"></input>
       </div>
     </div>
 

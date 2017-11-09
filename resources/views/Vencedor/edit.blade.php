@@ -30,8 +30,8 @@
      <!-- Nome do campeonato  -->  
 
      <div class="col-md-8">
-      <label for="nomeTorneio"> Nome do campeonato :</label>
-      <input type="text" class="form-control" name="nome"value="{{$vencedor->nomeTorneio}}"></input> 
+      <label for="torneio"> Nome do campeonato :</label>
+      <input type="text" class="form-control" name="nome"value="{{$vencedor->torneio}}"></input> 
       
     </div>  
 <!--       </div>

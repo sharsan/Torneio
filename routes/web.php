@@ -17,6 +17,7 @@ Route::resource('estado'    , 'EstadoController'    );
 Route::resource('et', 'EstadoTorneioController');  
 Route::resource('escalao'   , 'EscalaoController'   ); 
 Route::resource('faseGr'    , 'FaseGrController'    ); 
+Route::resource('luta'    , 'LutaController'    ); 
 Route::resource('grupo'    , 'GrupoController'    ); 
 Route::resource('inscrito'  , 'InscritoController'  );  
 Route::resource('treinador' , 'TreinadorController' );  

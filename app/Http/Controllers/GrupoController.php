@@ -72,7 +72,7 @@ Grupo::find($id)->update($request->all());
 
 return redirect()->route('grupo.index')
 
-->with('success','Actualizado com sucesso'); 
+->with('success','Grupo Actualizado com sucesso'); 
 } 
 
 public function destroy($id)

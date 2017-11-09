@@ -11,30 +11,30 @@ class EstadoTorneioController extends Controller
   {
    $et = EstadoTorneio::all()->toArray();
    
-   return view('estadotorneio.index', compact('et'));
+   return view('estadoTorneio.index', compact('et'));
  }
  
  public function create()
  {
 
-   $et =EstadoTorneio::all();
    $torneio =Torneio::all();
    $estado =Estado::all();
-   return view("estadotorneio.create",['torneio'=>$torneio,'estado'=>$estado ]); 
+   $et =EstadoTorneio::all();
+   return view("estadoTorneio.create",['torneio'=>$et,'estado'=>$estado,'torneio'=>$torneio ]); 
  } 
  
  public function edit($id)
  {
    $et = EstadoTorneio::find($id);
    
-   return view('estadotorneio.edit', compact('et','id')); 
+   return view('estadoTorneio.edit', compact('et','id')); 
  } 
 
  public function store(Request $request)
  {     
    $this->validate(request(), [
-    'torneio' => 'required|unique:ets|max:20',
-  ]);
+     'nome' => 'required|unique:ets|max:20',
+   ]);
    $et = new EstadoTorneio([
     'torneio' => $request->get('torneio'),
     'estado' => $request->get('estado'), 
@@ -53,10 +53,9 @@ class EstadoTorneioController extends Controller
       'estado' => 'required'
     ]); 
    EstadoTorneio::find($id)->update($request->all());
-
    return redirect()->route('et.index')
 
-   ->with('success','Estado do torneio actualizado com sucesso');   
+   ->with('success','Estado actualizado com sucesso');   
  }
  
  public function destroy($id)
@@ -64,6 +63,6 @@ class EstadoTorneioController extends Controller
    $et = EstadoTorneio::find($id);
    $et-> delete();
 
-   return redirect('et');
+   return redirect('/et');
  }  
 }

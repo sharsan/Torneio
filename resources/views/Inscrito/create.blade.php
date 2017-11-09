@@ -32,8 +32,8 @@
                                      <!-- Nome do Evento -->
             <div class="col-md-12"> 
                 <br>
-                 <label for="nomeTorneio"> Torneio:  
-                        <select id="nomeTorneio" name="nomeTorneio">
+                 <label for="torneio"> Torneio:  
+                  <select id="torneio" name="torneio">
                   
                         @foreach($torneio as $trn)
                           <option value="{{$trn->nome}}">{{$trn->nome}} </option>
