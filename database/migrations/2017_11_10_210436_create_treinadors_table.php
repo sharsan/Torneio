@@ -6,8 +6,8 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateTreinadorsTable extends Migration
 {
-   public function up()
-   {
+ public function up()
+ {
     Schema::create('treinadors', function (Blueprint $table)
     {
         $table->increments('id');

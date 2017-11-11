@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateLutasTable extends Migration
-{ 
+{
     public function up()
     {
         Schema::create('lutas', function (Blueprint $table) {

@@ -21,11 +21,11 @@ class InscritoController extends Controller
      $torneio =Torneio::all(); ;
      return view("inscrito.create",['atleta'=>$atleta,'escalao'=>$escalao,'torneio'=>$torneio]); 
  } 
- 
+
  public function edit($id)
  {
      $inscrito = Inscrito::find($id);
-     
+
      return view('inscrito.edit', compact('inscrito','id')); 
  } 
 
@@ -33,22 +33,27 @@ class InscritoController extends Controller
  {      
      request()->validate(  
         [   
-          'atleta' => 'required' 
-      ]); 
+            'atleta' => 'required',
+            'escalao' => 'required',
+            'torneio' => 'required',
+        ]); 
      Inscrito::find($id)->update($request->all());
      return redirect()->route('inscrito.index')
 
      ->with('success','Inscrição actualizada com sucesso');  
  }  
- 
+
  public function store(Request $request)
  {      
      $this->validate(request(), [
         // 'nome' => 'required|unique:inscritos|max:40',
-        'atleta' => 'required'
+
+        'atleta' => 'required',
+        'escalao' => 'required',
+        'torneio' => 'required',
     ]);
      $inscrito = new Inscrito([
-        'nomeTorneio' => $request->get('nomeTorneio'),
+        'torneio' => $request->get('torneio'),
         'atleta' => $request->get('atleta'), 
         'escalao' => $request->get('escalao'),  
         'descricao' => $request->get('descricao')
@@ -56,9 +61,9 @@ class InscritoController extends Controller
     ]);
      Inscrito::create($request->all());
      return back()->with('success', 'Competidor adicionado com sucesso'); 
-     
+
  }
- 
+
  public function destroy($id)
  {
      $inscrito = Inscrito::find($id);

@@ -1,22 +1,22 @@
 <?php
+
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClubesTable extends Migration
-{
-    public function up()
+class CreateEstadosTable extends Migration
+{public function up()
     {
-        Schema::create('clubes', function (Blueprint $table) 
+        Schema::create('estados', function (Blueprint $table) 
         {
             $table->increments('id');
-            $table->string('nome', 45); 
+            $table->string('nome', 20);  
             $table->timestamps(); 
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('clubes');
+        Schema::dropIfExists('estados');
     }
 }

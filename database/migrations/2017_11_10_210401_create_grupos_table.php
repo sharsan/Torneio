@@ -8,7 +8,7 @@ class CreateGruposTable extends Migration
 {
     public function up()
     {
-        Schema::create('grupo4s', function (Blueprint $table) {
+        Schema::create('grupos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome', 45);
             $table->string('torneio',30);

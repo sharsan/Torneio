@@ -24,6 +24,7 @@
 
         <div class="form-group col-md-4"> <br>
           <a href="{{URL::to('et/create')}}" title=""><h4>Adicionar estado de um torneio</h4></a> 
+          <a href="{{URL::to('torneio/create')}}" title=""><h4>Adicionar torneio</h4></a> 
         </div>
 
         <thead>

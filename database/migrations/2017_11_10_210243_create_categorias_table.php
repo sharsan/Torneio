@@ -4,11 +4,12 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEscalaosTable extends Migration
-{ 
+class CreateCategoriasTable extends Migration
+{
     public function up()
     {
-        Schema::create('escalaos', function (Blueprint $table) {
+        Schema::create('categorias', function (Blueprint $table) 
+        {
             $table->increments('id');
             $table->string('nome', 20);  
             $table->timestamps();
@@ -17,6 +18,6 @@ class CreateEscalaosTable extends Migration
     
     public function down()
     {
-        Schema::dropIfExists('escalaos');
+        Schema::dropIfExists('categorias');
     }
 }

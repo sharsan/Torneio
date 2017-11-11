@@ -6,55 +6,52 @@ use App\Estado;
 
 class TorneioController extends Controller
 {
-    public function index()
-    {
-       $torneio = Torneio::all()->toArray();        
-       return view('torneio.index', compact('torneio'));
-   } 
+  public function index()
+  {
+   $torneio = Torneio::all()->toArray();        
+   return view('torneio.index', compact('torneio'));
+ } 
 
-   public function create()
-   {     
-       $estado = new Estado();
-       return view("estado.create",compact('estado'));  
-       
-             // $estado =Estado::all(); 
-             // return view("torneio.create",compact('estado')); 
-   } 
+ public function create()
+ {     
+   $torneio = new Torneio();
+   return view("torneio.create",compact('torneio'));   
+ } 
+ 
+ public function edit($id)
+ {
+   $torneio = Torneio::find($id);
    
-   public function edit($id)
-   {
-       $torneio = Torneio::find($id);
-       
-       return view('torneio.edit', compact('torneio','id')); 
-   } 
+   return view('torneio.edit', compact('torneio','id')); 
+ } 
 
-   public function update(Request $request, $id)
-   {      
-     request()->validate(  
-      [   
-          'nome' => 'required' 
-      ]); 
-     Torneio::find($id)->update($request->all());
-     return redirect()->route('torneio.index')
+ public function update(Request $request, $id)
+ {      
+   request()->validate(  
+    [   
+      'nome' => 'required' 
+    ]); 
+   Torneio::find($id)->update($request->all());
+   return redirect()->route('torneio.index')
 
-     ->with('success','Torneio actualizado com sucesso');  
+   ->with('success','Torneio actualizado com sucesso');  
  }   
 
  public function store(Request $request)
  {      
-     $this->validate(request(), [
-        'nome' => 'required|unique:torneios|max:40',
-    ]);
-     $torneio = new Torneio([
-        'nome' => $request->get('nome'),  
-        'datai' => $request->get('datai'),   
-        'datat' => $request->get('datat'),   
-        'descricao' => $request->get('descricao')
+   $this->validate(request(), [
+    'nome' => 'required|unique:torneios|max:40',
+  ]);
+   $torneio = new Torneio([
+    'nome' => $request->get('nome'),  
+    'datai' => $request->get('datai'),   
+    'datat' => $request->get('datat'),   
+    'descricao' => $request->get('descricao')
                //campos de exigencia de valores
-    ]);
-     Torneio::create($request->all());
-     return back()->with('success', 'Torneio adicionado com sucesso'); 
-     
+  ]);
+   Torneio::create($request->all());
+   return back()->with('success', 'Torneio adicionado com sucesso'); 
+   
  }
 
  public function destroy($id)
@@ -63,5 +60,5 @@ class TorneioController extends Controller
    $torneio->delete();
 
    return redirect('/torneio');
-}  
+ }  
 }

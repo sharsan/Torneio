@@ -5,12 +5,12 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateVencedorsTable extends Migration
-{ 
+{
     public function up()
     {
         Schema::create('vencedors', function (Blueprint $table) {
             $table->increments('id');  
-            $table->string('nomeTorneio', 100);       
+            $table->string('torneio', 100);       
             $table->string('escalao', 5);
             $table->string('primeiro', 40);
             $table->string('segundo', 40);

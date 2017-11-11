@@ -1,9 +1,9 @@
 @extends('admin')
 @section('content')
-<title>Competicoes </title>
+<title>Editar luta </title>
 <div class="container"> 
-  <h2>Registrar vencedor</h2><br> 
-  <a href="{{URL::to('vencedor')}}" title=""><h4><- voltar</h4></a>
+  <h2>Registrar luta</h2><br> 
+  <a href="{{URL::to('luta12')}}" title=""><h4><- voltar</h4></a>
   
   @if ($errors->any())
   <div class="alert alert-danger">
@@ -21,7 +21,7 @@
 </div><br>
 @endif
 
-<form method="post"  action="{{url('vencedor')}}">
+<form method="post"  action="{{url('luta12')}}">
 
  {{csrf_field()}}   
  <!-- <div class="row">   -->
@@ -31,7 +31,7 @@
 
      <div class="col-md-8">
       <label for="torneio"> Nome do campeonato :</label>
-      <input type="text" class="form-control" name="torneio"value="{{$vencedor->torneio}}"></input> 
+      <input type="text" class="form-control" name="nome"value="{{$luta12->torneio}}"></input> 
       
     </div>  
 <!--       </div>
@@ -64,7 +64,7 @@
   <div class="form-group col-md-8"> 
     <div class="col-md-6">                                                <!-- juri : -->
       <label for="juri">Júri : 
-        <input type="text" class="form-control" name="juri"value="{{$vencedor->juri}}"></input>
+        <input type="text" class="form-control" name="juri"value="{{$luta12->juri}}"></input>
       </label>
     </div>
   </div> 
@@ -75,15 +75,15 @@
   <!-- Nome -->
   <div class="col-md-12">
     <label for="primeiro"> 1º lugar:</label>
-    <input type="text" class="form-control" name="primeiro"value="{{$vencedor->primeiro}}"></input><br></div>
+    <input type="text" class="form-control" name="primeiro"value="{{$luta12->primeiro}}"></input><br></div>
     <!-- Nome -->
     <div class="col-md-12">
       <label for="segundo"> 2º lugar:</label>
-      <input type="text" class="form-control" name="segundo"value="{{$vencedor->segundo}}"></input><br></div>
+      <input type="text" class="form-control" name="segundo"value="{{$luta12->segundo}}"></input><br></div>
       <!-- Nome -->
       <div class="col-md-12">
         <label for="terceiro">  3º lugar :</label>
-        <input type="text" class="form-control" name="terceiro"value="{{$vencedor->terceiro}}"></input><br></div>
+        <input type="text" class="form-control" name="terceiro"value="{{$luta12->terceiro}}"></input><br></div>
 
       </div>
     </div> 
@@ -93,12 +93,12 @@
     <div class="form-group col-md-12">
      <br> <label for="descricao" class="col-sm-2 col-form-label col-form-label-sm">Outros detalhes
 
-      <br> <br><textarea name="descricao" rows="8" cols="80"value="{{$vencedor->descricao}}"></textarea> 
+      <br> <br><textarea name="descricao" rows="8" cols="80"value="{{$luta12->descricao}}"></textarea> 
     </label>
   </div>
 
   <div class="form-group col-md-4"> 
-    <button type="submit" class="btn btn-success" style="margin-left:38px">Adicionar vencedores</button>  
+    <button type="submit" class="btn btn-success" style="margin-left:38px">Adicionar luta</button>  
   </div>
 </form>
 
