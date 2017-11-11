@@ -3,82 +3,69 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Estt;  
+use App\Torneio;  
+use App\Estado; 
 
 class EsttController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+  public function index()
+  {
+     $et = Estt::all()->toArray();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+     return view('estadotorneio.index', compact('et'));
+ }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+ public function create()
+ {
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+     $et =Estt::all();
+     $torneio =Torneio::all();
+     $estado =Estado::all();
+     return view("estadotorneio.create",['torneio'=>$torneio,'estado'=>$estado ]); 
+ } 
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+ public function edit($id)
+ {
+     $et = Estt::find($id);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+     return view('estadotorneio.edit', compact('estt','id')); 
+ }  
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+ public function update(Request $request, $id)
+ {          
+     request()->validate(  
+        [   
+          'torneio' => 'required',
+          'estado' => 'required'
+      ]); 
+     Estt::find($id)->update($request->all());
+
+     return redirect()->route('estt.index')
+
+     ->with('success','Estado do torneio actualizado com sucesso');   
+ }
+
+ public function store(Request $request)
+ {     
+     $this->validate(request(), [
+        'torneio' => 'required|unique:estts|max:40',
+    ]);
+     $et = new Estt([
+        'torneio' => $request->get('torneio'),
+        'estado' => $request->get('estado'), 
+               //campos de exigencia de valores
+    ]);
+     Estt::create($request->all());
+     return back()->with('success', 'Estado adicionado com sucesso'); 
+
+ }
+
+ public function destroy($id)
+ {
+     $et = Estt::find($id);
+     $et-> delete();
+
+     return redirect('et');
+ }  
 }

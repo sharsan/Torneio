@@ -1,31 +1,26 @@
-<?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+{<?php
 
-class CreateEsttsTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
+    use Illuminate\Support\Facades\Schema;
+    use Illuminate\Database\Schema\Blueprint;
+    use Illuminate\Database\Migrations\Migration;
+
+    class CreateEsttsTable extends Migration
     {
-        Schema::create('estts', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-        });
+        
+        public function up()
+        {
+            Schema::create('estts', function (Blueprint $table) {
+             
+                $table->increments('id');
+                $table->string('estado', 45); 
+                $table->string('torneio', 45); 
+                $table->timestamps();
+            });
+        }
+        
+        public function down()
+        {
+            Schema::dropIfExists('estts');
+        }
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('estts');
-    }
-}

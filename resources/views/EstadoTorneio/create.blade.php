@@ -4,7 +4,7 @@
 <div class="container"> 
  <link rel="stylesheet" href="{{asset('css/app.css')}}">
  <h2>Registrar estado do Torneio</h2><br>
- <a href="{{URL::to('estado')}}" title=""><h4><- voltar</h4></a>
+ <a href="{{URL::to('et')}}" title=""><h4><- voltar</h4></a>
 
  @if ($errors->any())
  <div class="alert alert-danger">
