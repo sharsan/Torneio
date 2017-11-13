@@ -61,3 +61,11 @@ Route::get('/round1', 'GrupoController@round1')->name('round1');
 // {
 
 // });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
